@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to AnyHive, an open-source community builder designed to empower creators to be independent and break free from the limitations of existing platforms.
+Welcome to AnyHive, a community-building platform that is open-source. We're designed to empower creators to be independent and overcome the limitations of traditional platforms.
 
 ## 🌟 Future Vision 🌟
 
