@@ -7,6 +7,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/registry/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     container: {
@@ -17,6 +18,9 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)', 'sans-serif'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -78,7 +82,8 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('@tailwindcss/forms'),
+   require('tailwindcss-animate')],
 };
 
 export default config;
