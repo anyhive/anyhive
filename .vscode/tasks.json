@@ -6,7 +6,7 @@
     {
       "label": "Maildev(587)",
       "type": "shell",
-      "command": "maildev -s 587",
+      "command": "pnpm maildev -s 587",
       "isBackground": false,
       "problemMatcher": []
     }
