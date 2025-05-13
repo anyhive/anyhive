@@ -1,41 +1,31 @@
-# AnyHive 🐝
+# shadcn/ui monorepo template
 
-## Introduction
+This template is for creating a monorepo with shadcn/ui.
 
-Welcome to AnyHive, a community-building platform that is open-source. We're designed to empower creators to be independent and overcome the limitations of traditional platforms.
+## Usage
 
-## 🌟 Future Vision 🌟
+```bash
+pnpm dlx shadcn@latest init
+```
 
-### User Stories
+## Adding components
 
-Imagine a creator, Jane, who wants to monetize her expertise in digital marketing:
+To add components to your app, run the following command at the root of your `web` app:
 
-- Jane sets up her community on AnyHive in minutes.
-- She chooses whether her community should have free or paid memberships.
-- Jane hosts weekly live events, creates forums for meaningful discussions, and shares resources with her community members.
-- With AnyHive's open-source transparency, she knows her data is hers alone.
-- She even customizes the code to add features she needs.
+```bash
+pnpm dlx shadcn@latest add button -c apps/web
+```
 
-### Features-to-Come
+This will place the ui components in the `packages/ui/src/components` directory.
 
-- **Free and Paid Memberships**: Decide how you want to monetize your community.
-- **Forums, Live Events, Resources**: Comprehensive tools to engage your audience.
+## Tailwind
 
-### Impact
+Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
 
-Build a direct pipeline between creators and their fans. We're on a mission to disrupt industry norms with a transparent, customizable solution that prioritizes creators and solves challenges.
+## Using components
 
-## Why Open Source?
+To use the components in your app, import them from the `ui` package.
 
-We believe in transparency, community contributions, and giving control back to the users. With our open-source code, you can trust us with your data, and even create/fork your own version of AnyHive if you wish.
-
-## 🤝 Get Involved 🤝
-
-- Star it to show your support
-- Watch this repository for updates
-- Fork it and submit pull requests
-- Open an issue for feature requests or bug reports
-
-## 📬 Contact 📬
-
-For more information, reach out to us at [x.com/joinAnyHive](https://x.com/joinAnyHive)
+```tsx
+import { Button } from "@workspace/ui/components/button"
+```
