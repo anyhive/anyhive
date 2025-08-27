@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/styles/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true
+  },
+  "iconLibrary": "lucide",
+  "aliases": {
+    "components": "@moneta-kit/ui/components",
+    "utils": "@moneta-kit/ui/lib/utils",
+    "hooks": "@moneta-kit/ui/hooks",
+    "lib": "@moneta-kit/ui/lib",
+    "ui": "@moneta-kit/ui/components"
+  }
+}

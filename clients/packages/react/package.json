@@ -1,0 +1,22 @@
+{
+  "name": "@moneta-kit/react",
+  "version": "0.0.1",
+  "description": "React UI & hooks for Moneta Kit",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.js"
+    }
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
+  
