@@ -38,34 +38,28 @@ export function useMoneta(options = {}) {
   return useAccessDecision({ ...options, publishableKey: ctx.publishableKey })
 }
 
-export function UpgradeButton({ href = '/pricing', label = 'Upgrade to read' }) {
+export function UpgradeButton({ href = '/pricing', label = 'Pay to unlock' }) {
   return (
-    <a
-      href={href}
-      className="inline-flex items-center gap-2 rounded-md bg-blue-600 text-white px-3 py-2 text-sm hover:bg-blue-700"
-    >
+    <a href={href} className="moneta-btn">
       {label}
     </a>
   )
 }
 
-export function PaywallOverlay({ children, href = '/pricing', label = 'Upgrade to read' }) {
+export function PaywallOverlay({ children, href = '/pricing', label = 'Pay to unlock', className = '' }) {
   return (
-    <div className="relative">
-      <div className="pointer-events-none blur-sm select-none">
+    <div className={`moneta-overlay ${className}`}>
+      <div className="moneta-blur">
         {children}
       </div>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="rounded-md bg-black/40 px-4 py-3">
+      <div className="moneta-overlay-backdrop">
+        <div>
           <UpgradeButton href={href} label={label} />
         </div>
       </div>
     </div>
   )
 }
-
-// Backward-compatible alias
-export { PaywallOverlay as BlurOverlay }
 
 // Aggregated client facade for ergonomic imports
 export const moneta = {

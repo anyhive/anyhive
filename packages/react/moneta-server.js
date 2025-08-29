@@ -191,12 +191,9 @@ export async function paywall(loadFn, options = {}) {
       <>
         <AccessBanner status={status} />
         {!allowed ? (
-          <>
-            <PaywallOverlay href={pricingUrl}>{placeholder}</PaywallOverlay>
-            {tips ? (
-              <p className="text-xs text-neutral-500 mt-2">Tip: append <code>?access=allow</code> to simulate paid access.</p>
-            ) : null}
-          </>
+          <PaywallOverlay href={pricingUrl}>
+            {placeholder}
+          </PaywallOverlay>
         ) : Array.isArray(data) && data.length === 0 ? (
           <EmptyPlaceholder />
         ) : (

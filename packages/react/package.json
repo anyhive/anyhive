@@ -15,7 +15,8 @@
     },
     "./client": {
       "import": "./moneta-client.js",
-      "require": "./moneta-client.js"
+      "require": "./moneta-client.js",
+      "style": "./styles.css"
     },
     "./next": {
       "import": "./moneta-client.js",
@@ -31,7 +32,11 @@
     "react": ">=18"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i src/styles/tailwind.css -o styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.0"
   }
 }
-  
