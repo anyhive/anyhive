@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 const DEFAULT_PLANS = [
   {
@@ -76,4 +76,76 @@ export function usePricingTable(options = {}) {
 
 export default { usePricingTable }
 
+
+// Access gating hook for demo purposes (non-authenticated simulation)
+export function useAccessDecision(options = {}) {
+  const {
+    // If provided, this boolean directly determines access
+    allowed: allowedOverride,
+    // Optional: read from URL search param, e.g. access=allow|deny
+    urlParam = 'access',
+  } = options
+
+  const [status, setStatus] = useState('checking') // 'checking' | 'ok' | 'blocked'
+  const [reason, setReason] = useState('Determining access...')
+
+  useEffect(() => {
+    if (typeof allowedOverride === 'boolean') {
+      setStatus(allowedOverride ? 'ok' : 'blocked')
+      setReason(allowedOverride ? 'Access granted by override' : 'Access denied by override')
+      return
+    }
+
+    try {
+      const params = new URLSearchParams(window.location.search)
+      const value = params.get(urlParam)
+      if (value === 'allow' || value === '1' || value === 'true') {
+        setStatus('ok')
+        setReason('Access granted via URL parameter')
+      } else if (value === 'deny' || value === '0' || value === 'false') {
+        setStatus('blocked')
+        setReason('Access denied via URL parameter')
+      } else {
+        // Default demo policy: allow
+        setStatus('ok')
+        setReason('Access granted by default policy')
+      }
+    } catch {
+      setStatus('ok')
+      setReason('Access granted (fallback)')
+    }
+  }, [allowedOverride, urlParam])
+
+  return {
+    status,
+    reason,
+    isAllowed: status === 'ok',
+  }
+}
+
+// Public, ergonomic client hook name
+export function useMonetaKit(options = {}) {
+  const result = useAccessDecision(options)
+  async function gate(loadFn) {
+    if (result.isAllowed) {
+      const data = await loadFn()
+      return { allowed: true, status: result.status, data }
+    }
+    return { allowed: false, status: result.status, reason: result.reason, data: undefined }
+  }
+  const fetchIfAllowed = gate
+  const { status, reason, isAllowed } = result
+  function checkStatus() {
+    return status
+  }
+  return {
+    ...result,
+    allowed: isAllowed,
+    checkStatus,
+    gate,
+    fetchIfAllowed,
+  }
+}
+
+export { getMoneta as getMonetaKit } from './moneta-server.js'
 

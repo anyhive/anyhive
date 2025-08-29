@@ -1,12 +1,23 @@
 {
   "name": "moneta-kit",
   "version": "0.0.1",
-  "description": "",
+  "description": "Unified Moneta facade for server/client usage.",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "type": "module",
+  "exports": {
+    ".": {
+      "react-server": "./server.js",
+      "import": "./server.js",
+      "require": "./server.js"
+    },
+    "./client": {
+      "import": "./client.js",
+      "require": "./client.js"
+    }
+  },
+  "main": "server.js",
+  "dependencies": {
+    "@moneta-kit/react": "workspace:*"
   }
 }

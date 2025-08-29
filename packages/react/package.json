@@ -8,8 +8,23 @@
   "main": "index.js",
   "exports": {
     ".": {
+      "react-server": "./moneta-server.js",
+      "types": "./index.d.ts",
       "import": "./index.js",
       "require": "./index.js"
+    },
+    "./client": {
+      "import": "./moneta-client.js",
+      "require": "./moneta-client.js"
+    },
+    "./next": {
+      "import": "./moneta-client.js",
+      "require": "./moneta-client.js"
+    },
+    "./server": {
+      "types": "./moneta-server.d.ts",
+      "import": "./moneta-server.js",
+      "require": "./moneta-server.js"
     }
   },
   "peerDependencies": {
