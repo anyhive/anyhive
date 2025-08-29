@@ -1,0 +1,61 @@
+{
+    "$schema": "https://mintlify.com/docs.json",
+    "theme": "maple",
+    "name": "Mintlify",
+    "colors": {
+      "primary": "#0D9373",
+      "light": "#55D799",
+      "dark": "#0D9373"
+    },
+    "favicon": "/favicon.ico",
+    "icons": {
+      "library": "lucide"
+    },
+    "logo": {
+      "light": "/logo/light.svg",
+      "dark": "/logo/dark.svg",
+      "href": "https://docs.monetakit.com/"
+    },
+    "navigation": {
+        
+    },
+    "api": {
+      "mdx": {
+        "auth": {
+          "method": "bearer"
+        }
+      }
+    },
+    "footer": {
+      "socials": {
+        "x": "https://x.com/monetakit",
+        "linkedin": "https://www.linkedin.com/company/monetakit",
+        "github": "https://github.com/monetakit"
+      },
+      "links": [
+        {
+            "header": "Community",
+            "items": [
+              {
+                "label": "Discord",
+                "href": "https://discord.gg/2mkz2m9w6m"
+              }
+            ]
+          }
+      ]
+    },
+    "thumbnails": {
+    },
+    "contextual": {
+      "options": [
+        "copy",
+        "chatgpt",
+        "claude",
+        "cursor",
+        "vscode"
+      ]
+    },
+ 
+    "integrations": {
+    }
+  }

@@ -1,0 +1,22 @@
+{
+  "name": "moneta-kit",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "@moneta-kit/typescript-config": "workspace:*",
+    "prettier": "^3.5.3",
+    "turbo": "^2.5.6",
+    "typescript": "5.8.2"
+  },
+  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": ">=20"
+  }
+}

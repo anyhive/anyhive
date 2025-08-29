@@ -1,0 +1,10 @@
+{
+  "name": "@moneta-kit/docs",
+  "version": "0.0.1",
+  "scripts": {
+      "dev": "mintlify dev"
+    },
+  "devDependencies": {
+    "mintlify": "^4.2.86"
+  }
+}
