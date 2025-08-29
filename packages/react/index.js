@@ -160,3 +160,33 @@ export const ACCESS_STATUS = Object.freeze({
   QUOTA_EXCEEDED: 'quotaExceeded',
 })
 
+// Usage/metering primitives (client-side; can be backed by server later)
+export function useUsage(initial = { used: 0, limit: 100 }) {
+  const [used, setUsed] = useState(initial.used)
+  const [limit, setLimit] = useState(initial.limit)
+  const remaining = Math.max(0, limit - used)
+  const ratio = limit > 0 ? Math.min(1, used / limit) : 0
+  function add(delta = 1) { setUsed((v) => v + delta) }
+  function reset(newLimit) {
+    if (typeof newLimit === 'number') setLimit(newLimit)
+    setUsed(0)
+  }
+  return { used, limit, remaining, ratio, setUsed, setLimit, add, reset }
+}
+
+export function useMeteredAction(action, options = {}) {
+  const { cost = 1, onBlocked } = options
+  const usage = options.usage || useUsage()
+  const allowed = usage.remaining >= cost
+  async function run(...args) {
+    if (!allowed) {
+      if (onBlocked) onBlocked({ used: usage.used, limit: usage.limit })
+      return { ok: false, reason: 'quota' }
+    }
+    const result = await action(...args)
+    usage.add(cost)
+    return { ok: true, result }
+  }
+  return { run, allowed, usage }
+}
+

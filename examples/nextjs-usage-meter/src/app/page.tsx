@@ -1,44 +1,55 @@
-import Image from "next/image";
-import { prisma } from "@/lib/prisma";
-import { paywall } from "@moneta-kit/react/server";
-import "@moneta-kit/react/styles.css";
-// import "@moneta-kit/react/themes/neobrutal.css";
+"use client";
 
-type Post = {
-  id: number;
-  title: string;
-  content: string;
-};
+import { useState } from "react";
+import { useMeteredAction } from "@moneta-kit/react";
+import { UsageMeter, UsageGate, UpgradeButton } from "@moneta-kit/react/client";
 
-export default async function Home() {
-  // const posts: Post[] = await prisma.posts.findMany();
-  const { render } = await paywall(() => prisma.posts.findMany());
+export default function Home() {
+  const [response, setResponse] = useState<string | null>(null);
+
+  const action = async () => {
+    // simulate an LLM call
+    await new Promise((r) => setTimeout(r, 200));
+    return "Hello from LLM!";
+  };
+
+  const { run, allowed, usage } = useMeteredAction(action, { cost: 5 });
 
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full max-w-2xl">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-
-        <section className="w-full">
-          <h2 className="text-lg font-semibold mb-2">Posts</h2>
-          {render((posts: Post[]) => (
-            <ul className="space-y-3">
-              {posts.map((p: Post) => (
-                <li key={p.id} className="rounded border p-3">
-                  <div className="font-semibold">{p.title}</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-300">{p.content}</div>
-                </li>
-              ))}
-            </ul>
-          ))}
-        </section>
+      <main className="flex flex-col gap-[16px] row-start-2 items-center sm:items-start w-full max-w-2xl">
+        <h1 className="text-xl font-semibold">Usage Meter Demo</h1>
+        <UsageMeter used={usage.used} limit={usage.limit} />
+        <div className="flex items-center gap-2">
+          <button
+            className="rounded bg-blue-600 text-white px-3 py-2 text-sm hover:bg-blue-700"
+            onClick={async () => {
+              const res = await run();
+              if (res.ok) setResponse(res.result as string);
+            }}
+          >
+            Call LLM (cost 5)
+          </button>
+          <button
+            className="rounded border px-3 py-2 text-sm"
+            onClick={() => usage.reset()}
+          >
+            Reset
+          </button>
+        </div>
+        <UsageGate
+          allowed={allowed}
+          fallback={
+            <div className="rounded-md border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800 flex items-center gap-3">
+              Quota exceeded. Please upgrade.
+              <UpgradeButton href="/pricing" />
+            </div>
+          }
+        >
+          {response && (
+            <div className="rounded border p-3 text-sm bg-white/70">{response}</div>
+          )}
+        </UsageGate>
       </main>
     </div>
   );

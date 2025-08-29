@@ -79,6 +79,27 @@ export const moneta = {
   useMoneta,
 }
 
+export function UsageMeter({ used, limit }) {
+  const ratio = limit > 0 ? Math.min(1, used / limit) : 0
+  const pct = Math.round(ratio * 100)
+  return (
+    <div className="w-full max-w-md">
+      <div className="flex justify-between text-xs mb-1">
+        <span>Usage</span>
+        <span>{used} / {limit}</span>
+      </div>
+      <div className="h-2 w-full rounded bg-gray-200 overflow-hidden">
+        <div className="h-2 bg-blue-600" style={{ width: `${pct}%` }} />
+      </div>
+    </div>
+  )
+}
+
+export function UsageGate({ allowed, children, fallback }) {
+  if (!allowed) return fallback ?? null
+  return <>{children}</>
+}
+
 export function AccessBanner({ status, expiresAt, className = '' }) {
   if (!status || status === ACCESS_STATUS.OK) return null
   const base = 'rounded-md px-3 py-2 text-sm mb-3'
