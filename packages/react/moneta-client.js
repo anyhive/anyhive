@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useMemo } from 'react'
-import { useAccessDecision } from './index.js'
+import { useAccessDecision, ACCESS_STATUS } from './index.js'
 
 const MonetaContext = createContext({ publishableKey: undefined })
 
@@ -73,6 +73,59 @@ export const moneta = {
   PaywallOverlay,
   UpgradeButton,
   useMoneta,
+}
+
+export function AccessBanner({ status, expiresAt }) {
+  if (!status || status === ACCESS_STATUS.OK) return null
+  const base = 'rounded-md px-3 py-2 text-sm mb-3'
+  switch (status) {
+    case ACCESS_STATUS.EXPIRING_SOON:
+      return (
+        <div className={`${base} bg-amber-50 text-amber-800 border border-amber-200`}>
+          Your access is expiring soon{expiresAt ? ` (by ${new Date(expiresAt).toLocaleDateString()})` : ''}.
+        </div>
+      )
+    case ACCESS_STATUS.EXPIRED:
+      return (
+        <div className={`${base} bg-red-50 text-red-700 border border-red-200`}>
+          Your membership has expired. Please renew to continue.
+        </div>
+      )
+    case ACCESS_STATUS.NO_CONTENT:
+      return (
+        <div className={`${base} bg-gray-50 text-gray-700 border border-gray-200`}>
+          No content available yet.
+        </div>
+      )
+    case ACCESS_STATUS.SOFT_BLOCKED:
+      return (
+        <div className={`${base} bg-blue-50 text-blue-700 border border-blue-200`}>
+          Limited preview mode.
+        </div>
+      )
+    case ACCESS_STATUS.QUOTA_EXCEEDED:
+      return (
+        <div className={`${base} bg-purple-50 text-purple-700 border border-purple-200`}>
+          You have reached your quota. Please upgrade your plan.
+        </div>
+      )
+    case ACCESS_STATUS.BLOCKED:
+    default:
+      return (
+        <div className={`${base} bg-red-50 text-red-700 border border-red-200`}>
+          Access denied. Please upgrade to view this content.
+        </div>
+      )
+  }
+}
+
+export function EmptyPlaceholder({ title = 'Nothing here yet', description = 'Come back later for new content.' }) {
+  return (
+    <div className="rounded-md border border-dashed p-6 text-center text-sm text-neutral-500">
+      <div className="font-medium mb-1">{title}</div>
+      <div>{description}</div>
+    </div>
+  )
 }
 
 

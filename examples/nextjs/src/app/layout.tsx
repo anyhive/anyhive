@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { moneta } from "@moneta-kit/react/client";
+import { MonetaProvider } from "@moneta-kit/react/client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +28,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <moneta.Provider publishableKey={process.env.NEXT_PUBLIC_MONETA_PUBLISHABLE_KEY}>
+        <MonetaProvider publishableKey={process.env.NEXT_PUBLIC_MONETA_PUBLISHABLE_KEY}>
           {children}
-        </moneta.Provider>
+        </MonetaProvider>
       </body>
     </html>
   );
