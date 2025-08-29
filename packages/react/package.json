@@ -26,6 +26,9 @@
       "types": "./moneta-server.d.ts",
       "import": "./moneta-server.js",
       "require": "./moneta-server.js"
+    },
+    "./styles.css": {
+      "default": "./styles.css"
     }
   },
   "peerDependencies": {

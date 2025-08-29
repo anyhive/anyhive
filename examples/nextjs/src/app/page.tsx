@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { paywall } from "@moneta-kit/react/server";
+import "@moneta-kit/react/styles.css";
 
 export default async function Home() {
   const { render } = await paywall(() => prisma.posts.findMany());
