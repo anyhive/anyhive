@@ -2,8 +2,16 @@ import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { paywall } from "@moneta-kit/react/server";
 import "@moneta-kit/react/styles.css";
+// import "@moneta-kit/react/themes/neobrutal.css";
+
+type Post = {
+  id: number;
+  title: string;
+  content: string;
+};
 
 export default async function Home() {
+  // const posts: Post[] = await prisma.posts.findMany();
   const { render } = await paywall(() => prisma.posts.findMany());
 
   return (
@@ -20,9 +28,9 @@ export default async function Home() {
 
         <section className="w-full">
           <h2 className="text-lg font-semibold mb-2">Posts</h2>
-          {render((posts: { id: number; title: string; content: string }[]) => (
+          {render((posts: Post[]) => (
             <ul className="space-y-3">
-              {posts.map((p) => (
+              {posts.map((p: Post) => (
                 <li key={p.id} className="rounded border p-3">
                   <div className="font-semibold">{p.title}</div>
                   <div className="text-sm text-gray-600 dark:text-gray-300">{p.content}</div>

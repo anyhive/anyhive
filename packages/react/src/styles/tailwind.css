@@ -1,31 +1,16 @@
 @import "tailwindcss";
+@source "../../*.{js,jsx,ts,tsx}";
 
 @theme inline {
   --color-moneta-overlay: rgba(0,0,0,0.4);
   --color-moneta-primary: #2563eb;
   --color-moneta-primary-hover: #1d4ed8;
-}
-
-@utility moneta-btn {
-  @apply inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm text-white;
-  background: var(--color-moneta-primary);
-}
-
-@utility moneta-btn:hover {
-  background: var(--color-moneta-primary-hover);
-}
-
-@utility moneta-overlay {
-  @apply relative;
-}
-
-@utility moneta-blur {
-  filter: blur(4px);
-  pointer-events: none;
-  user-select: none;
-}
-
-@utility moneta-overlay-backdrop {
-  @apply absolute inset-0 flex items-center justify-center;
-  background: var(--color-moneta-overlay);
+  --color-moneta-info-bg: #eff6ff; /* blue-50 */
+  --color-moneta-info-fg: #1e40af; /* blue-800 */
+  --color-moneta-warn-bg: #fffbeb; /* amber-50 */
+  --color-moneta-warn-fg: #92400e; /* amber-800 */
+  --color-moneta-error-bg: #fef2f2; /* red-50 */
+  --color-moneta-error-fg: #b91c1c; /* red-700 */
+  --color-moneta-neutral-bg: #f9fafb; /* gray-50 */
+  --color-moneta-neutral-fg: #374151; /* gray-700 */
 }

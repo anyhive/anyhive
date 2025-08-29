@@ -29,6 +29,12 @@
     },
     "./styles.css": {
       "default": "./styles.css"
+    },
+    "./themes/minimal.css": {
+      "default": "./themes/minimal.css"
+    },
+    "./themes/neobrutal.css": {
+      "default": "./themes/neobrutal.css"
     }
   },
   "peerDependencies": {
