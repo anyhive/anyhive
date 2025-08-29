@@ -1,0 +1,30 @@
+{
+  "name": "@moneta-kit/hosted-pages",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack --port 3100",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "@moneta-kit/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@moneta-kit/eslint-config": "workspace:*",
+    "@moneta-kit/typescript-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.1",
+    "eslint": "^9.34.0",
+    "typescript": "5.9.2"
+  }
+}
+
+

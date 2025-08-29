@@ -21,8 +21,6 @@ It unifies:
 
 With one SDK + API, developers can own your cross-border payments infra, e.g. collect payments, tax compliance and payouts in **minutes, not weeks** — without vendor lock-in.
 
----
-
 ## 🚀 Why Moneta?
 
 - **Stripe is not global**: In Japan, PayPay dominates. In Thailand, LINE Pay. In Vietnam, Momo. Each country has its own PSP.  
@@ -30,8 +28,6 @@ With one SDK + API, developers can own your cross-border payments infra, e.g. co
 - **Tax compliance is complex**: VAT, GST, and consumption tax rules are fragmented and difficult to maintain.  
 
 **Moneta solves this by providing one unified API.**
-
----
 
 ## ✨ Features
 
@@ -43,8 +39,6 @@ With one SDK + API, developers can own your cross-border payments infra, e.g. co
 - 🖥️ Hosted checkout & customer portals (zero-setup)
 - ⚛️ React components for embeddable, customizable UI
 
----
-
 ## Core Concepts
 
 Moneta Kit allows you to:
@@ -53,8 +47,6 @@ Moneta Kit allows you to:
 * No-code upgrades, downgrades, and cancellation. 
 * Deal with cross-border payments and tax compliance in one place.
 * Use Moneta Kit to build your own checkout and customer portals.
-
----
 
 ## 🏗 Example
 
@@ -93,8 +85,24 @@ const subscription = await createSubscription({
 })
 ```
 
+## Tech Stack
 
----
+### Server
+
+- [Ruby on Rails](https://rubyonrails.org/)
+- [PlanetScale](https://planetscale.com/) - database(PostgreSQL)
+
+### Client
+
+- [React](https://react.dev/) - Embeddable components like pricing table, checkout, and customer portal.
+- [Next.js](https://nextjs.org/) - Hosted checkout page & customer portal
+- [React Router](https://reactrouter.com/) - Hosted checkout page & customer portal
+- [Tailwind CSS](https://tailwindcss.com/) - CSS
+- [Upstash](https://upstash.com/) - Redis
+- [Drizzle ORM](https://orm.drizzle.team/) - Database ORM
+- [Turborepo](https://turbo.build/repo) - Monorepo
+- [Cloudflare Workers](https://workers.cloudflare.com/) - Serverless functions
+- [Vercel](https://vercel.com/) - Deployment
 
 ## 🌏 Roadmap
 
@@ -105,20 +113,17 @@ const subscription = await createSubscription({
 - [ ] Usage-based billing support.
 - [ ] Plugins: LLM API routing, usage analytics, pricing optimization.
 
----
-
 ## 💡 Vision
 
 We believe the future of payments is **cross-border + AI-driven**.  
-Moneta Kit will become the **global abstraction layer** for payments + compliance, for humans and AI agents alike.  
 
----
+Moneta Kit will become the **global abstraction layer** for payments + compliance, for humans and AI agents alike.  
 
 ## Self-hosting
 
-Moneta Kit is open-source and self-hostable. Our goal is to make it easy to self-host, and to make it easy to integrate with your own infrastructure.
+Moneta Kit is open-source and self-hostable. Our goal is to make it easy to self-host and you won't be locked-in, and to make it easy to integrate with your own payment service provider.
 
----
+For the self-hosted version, we will make it easy to deploy to Cloudflare Workers or Vercel.
 
 ## 📣 Get Involved
 
