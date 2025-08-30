@@ -61,7 +61,7 @@ export function UpgradeModal({ open, onClose, onCheckout = undefined, href = '/p
   const [card, setCard] = useState({ name: '', number: '', exp: '', cvc: '' })
   return (
     <Dialog open={!!open} onOpenChange={(v)=>{ if(!v && onClose) onClose() }}>
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="sm:max-w-lg bg-white dark:bg-slate-900">
         <DialogHeader>
           <DialogTitle>Upgrade your plan</DialogTitle>
           <DialogDescription>
@@ -139,7 +139,7 @@ export function UpgradeButton({ href = '/pricing', label = 'Pay to unlock', clas
           type="button"
           data-moneta="upgrade-button"
           className={`moneta:inline-flex moneta:items-center moneta:gap-2 moneta:rounded-md moneta:bg-blue-600 moneta:text-white moneta:px-3 moneta:py-2 moneta:text-sm moneta:hover:bg-blue-700 ${className}`}
-          onClick={() => setOpen(true)}
+          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setOpen(true) }}
         >
           {label}
         </button>

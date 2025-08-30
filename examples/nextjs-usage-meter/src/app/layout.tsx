@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "@moneta-kit/react/styles.css";
 import { MonetaProvider } from "@moneta-kit/react/client";
 
 const geistSans = Geist({

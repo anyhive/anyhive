@@ -30,9 +30,17 @@ export declare function UsageGate(props: UsageGateProps): React.ReactNode
 
 export declare function useMoneta(options?: { publishableKey?: string }): any
 
+export declare function MonetaProvider(props: { publishableKey?: string; theme?: string; children?: React.ReactNode }): React.ReactNode
+export declare function useMonetaContext(): { publishableKey?: string }
+export declare function MonetaGate(props: { children?: React.ReactNode }): React.ReactNode
+export declare function MonetaStatus(): React.ReactNode
+export declare function PaywallOverlay(props: { children?: React.ReactNode; href?: string; label?: string; className?: string; backdropClassName?: string; contentClassName?: string; buttonClassName?: string }): React.ReactNode
+export declare function AccessBanner(props: { status?: any; expiresAt?: string; className?: string }): React.ReactNode
+export declare function EmptyPlaceholder(props: { title?: string; description?: string; className?: string }): React.ReactNode
+
 export declare const moneta: {
-  Provider: (props: { publishableKey?: string; theme?: string; children?: React.ReactNode }) => React.ReactNode,
-  PaywallOverlay: (props: { children?: React.ReactNode; href?: string; label?: string; className?: string; backdropClassName?: string; contentClassName?: string; buttonClassName?: string }) => React.ReactNode,
+  Provider: typeof MonetaProvider,
+  PaywallOverlay: typeof PaywallOverlay,
   UpgradeButton: typeof UpgradeButton,
   useMoneta: typeof useMoneta,
 }
