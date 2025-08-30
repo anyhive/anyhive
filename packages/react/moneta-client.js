@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useMemo } from 'react'
+import React, { createContext, useContext, useMemo, useState } from 'react'
 import { useAccessDecision, ACCESS_STATUS } from './index.js'
 
 const MonetaContext = createContext({ publishableKey: undefined })
@@ -44,7 +44,107 @@ export function useMoneta(options = {}) {
   return useAccessDecision({ ...options, publishableKey: ctx.publishableKey })
 }
 
-export function UpgradeButton({ href = '/pricing', label = 'Pay to unlock', className = '' }) {
+export function UpgradeModal({ open, onClose, onCheckout = undefined, href = '/pricing', plans = [
+  { id: 'basic', name: 'Basic', priceMonthly: 9, priceYearly: 90 },
+  { id: 'pro', name: 'Pro', priceMonthly: 29, priceYearly: 290 },
+  { id: 'team', name: 'Team', priceMonthly: 99, priceYearly: 990 },
+], defaultPlan = 'pro', defaultCycle = 'monthly' }) {
+  const [planId, setPlanId] = useState(defaultPlan)
+  const [cycle, setCycle] = useState(defaultCycle) // 'monthly' | 'yearly'
+  const price = (() => {
+    const p = plans.find(p => p.id === planId)
+    if (!p) return 0
+    return cycle === 'monthly' ? p.priceMonthly : p.priceYearly
+  })()
+  const [method, setMethod] = useState('card') // 'card' | 'paypal'
+  const [card, setCard] = useState({ name: '', number: '', exp: '', cvc: '' })
+  if (!open) return null
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black/50" onClick={onClose} />
+      <div className="relative z-10 w-full max-w-md rounded-lg bg-white p-5 shadow-xl">
+        <div className="text-base font-semibold mb-3">Upgrade your plan</div>
+        <p className="text-sm text-gray-600 mb-4">Unlock full access and higher limits. Choose a plan and complete your upgrade.</p>
+
+        <div className="space-y-3 mb-4">
+          <div>
+            <div className="text-sm font-medium mb-2">Billing cycle</div>
+            <div className="flex gap-2">
+              <button type="button" className={`px-3 py-1.5 rounded border text-sm ${cycle==='monthly'?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setCycle('monthly')}>Monthly</button>
+              <button type="button" className={`px-3 py-1.5 rounded border text-sm ${cycle==='yearly'?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setCycle('yearly')}>Yearly</button>
+            </div>
+          </div>
+          <div>
+            <div className="text-sm font-medium mb-2">Plan</div>
+            <div className="grid grid-cols-3 gap-2">
+              {plans.map(p => (
+                <button key={p.id} type="button" className={`px-3 py-2 rounded border text-sm text-left ${planId===p.id?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setPlanId(p.id)}>
+                  <div className="font-medium">{p.name}</div>
+                  <div className="text-xs text-gray-600">{cycle==='monthly'?`$${p.priceMonthly}/mo`:`$${p.priceYearly}/yr`}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-3 mb-4">
+          <div className="text-sm font-medium">Payment method</div>
+          <div className="flex gap-2 mb-2">
+            <button type="button" className={`px-3 py-1.5 rounded border text-sm ${method==='card'?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setMethod('card')}>Card</button>
+            <button type="button" className={`px-3 py-1.5 rounded border text-sm ${method==='paypal'?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setMethod('paypal')}>PayPal</button>
+          </div>
+          {method==='card' ? (
+            <div className="grid grid-cols-2 gap-2">
+              <input className="col-span-2 border border-gray-300 rounded px-3 py-2 text-sm" placeholder="Name on card" value={card.name} onChange={(e)=>setCard({...card, name:e.target.value})} />
+              <input className="col-span-2 border border-gray-300 rounded px-3 py-2 text-sm" placeholder="Card number" value={card.number} onChange={(e)=>setCard({...card, number:e.target.value})} />
+              <input className="border border-gray-300 rounded px-3 py-2 text-sm" placeholder="MM/YY" value={card.exp} onChange={(e)=>setCard({...card, exp:e.target.value})} />
+              <input className="border border-gray-300 rounded px-3 py-2 text-sm" placeholder="CVC" value={card.cvc} onChange={(e)=>setCard({...card, cvc:e.target.value})} />
+            </div>
+          ) : (
+            <div className="text-sm text-gray-600">You will be redirected to PayPal to complete your purchase.</div>
+          )}
+        </div>
+
+        <div className="flex items-center justify-between text-sm text-gray-600 mb-3">
+          <span>Total</span>
+          <span className="font-semibold text-gray-900">${price}{cycle==='monthly'?'/mo':'/yr'}</span>
+        </div>
+
+        <div className="flex justify-end gap-2">
+          <button className="rounded border px-3 py-1.5 text-sm" onClick={onClose}>Cancel</button>
+          <button
+            className="rounded bg-blue-600 text-white px-3 py-1.5 text-sm hover:bg-blue-700"
+            onClick={() => {
+              const payload = { planId, cycle, method, card }
+              if (onCheckout) { onCheckout(payload); return }
+              if (href) window.location.href = href
+            }}
+          >
+            Pay now
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function UpgradeButton({ href = '/pricing', label = 'Pay to unlock', className = '', mode = 'link', onCheckout = undefined } = {}) {
+  const [open, setOpen] = useState(false)
+  if (mode === 'modal') {
+    return (
+      <>
+        <button
+          type="button"
+          data-moneta="upgrade-button"
+          className={`inline-flex items-center gap-2 rounded-md bg-blue-600 text-white px-3 py-2 text-sm hover:bg-blue-700 ${className}`}
+          onClick={() => setOpen(true)}
+        >
+          {label}
+        </button>
+        <UpgradeModal open={open} onClose={() => setOpen(false)} onCheckout={onCheckout} href={href} />
+      </>
+    )
+  }
   return (
     <a
       href={href}
