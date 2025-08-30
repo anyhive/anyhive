@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" prefix(moneta);
 @source "../../*.{js,jsx,ts,tsx}";
 
 @theme inline {

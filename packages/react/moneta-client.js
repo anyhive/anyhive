@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useMemo, useState } from 'react'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@moneta-kit/ui/components/dialog'
 import { useAccessDecision, ACCESS_STATUS } from './index.js'
 
 const MonetaContext = createContext({ publishableKey: undefined })
@@ -29,9 +30,9 @@ export function MonetaGate({ children }) {
 
 export function MonetaStatus() {
   const { isAllowed, status, reason } = useAccessDecision()
-  if (status === 'checking') return <div className="text-sm">Checking access…</div>
+  if (status === 'checking') return <div className="moneta:text-sm">Checking access…</div>
   if (!isAllowed) return (
-    <div className="rounded border border-red-300 dark:border-red-600 bg-red-50/70 dark:bg-red-900/20 p-3 text-sm">
+    <div className="moneta:rounded moneta:border moneta:border-red-300 moneta:dark:border-red-600 moneta:bg-red-50/70 moneta:dark:bg-red-900/20 moneta:p-3 moneta:text-sm">
       Access denied: {reason}
     </div>
   )
@@ -58,62 +59,63 @@ export function UpgradeModal({ open, onClose, onCheckout = undefined, href = '/p
   })()
   const [method, setMethod] = useState('card') // 'card' | 'paypal'
   const [card, setCard] = useState({ name: '', number: '', exp: '', cvc: '' })
-  if (!open) return null
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div className="absolute inset-0 bg-black/50" onClick={onClose} />
-      <div className="relative z-10 w-full max-w-md rounded-lg bg-white p-5 shadow-xl">
-        <div className="text-base font-semibold mb-3">Upgrade your plan</div>
-        <p className="text-sm text-gray-600 mb-4">Unlock full access and higher limits. Choose a plan and complete your upgrade.</p>
+    <Dialog open={!!open} onOpenChange={(v)=>{ if(!v && onClose) onClose() }}>
+      <DialogContent className="sm:max-w-lg">
+        <DialogHeader>
+          <DialogTitle>Upgrade your plan</DialogTitle>
+          <DialogDescription>
+            Unlock full access and higher limits. Choose a plan and complete your upgrade.
+          </DialogDescription>
+        </DialogHeader>
 
-        <div className="space-y-3 mb-4">
+        <div className="moneta:space-y-3 moneta:mb-2">
           <div>
-            <div className="text-sm font-medium mb-2">Billing cycle</div>
-            <div className="flex gap-2">
-              <button type="button" className={`px-3 py-1.5 rounded border text-sm ${cycle==='monthly'?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setCycle('monthly')}>Monthly</button>
-              <button type="button" className={`px-3 py-1.5 rounded border text-sm ${cycle==='yearly'?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setCycle('yearly')}>Yearly</button>
+            <div className="moneta:text-sm moneta:font-medium moneta:mb-2">Billing cycle</div>
+            <div className="moneta:flex moneta:gap-2">
+              <button type="button" className={`moneta:px-3 moneta:py-1.5 moneta:rounded moneta:border moneta:text-sm ${cycle==='monthly'?'moneta:bg-blue-50 moneta:border-blue-200 moneta:text-blue-700':'moneta:border-gray-200'}`} onClick={()=>setCycle('monthly')}>Monthly</button>
+              <button type="button" className={`moneta:px-3 moneta:py-1.5 moneta:rounded moneta:border moneta:text-sm ${cycle==='yearly'?'moneta:bg-blue-50 moneta:border-blue-200 moneta:text-blue-700':'moneta:border-gray-200'}`} onClick={()=>setCycle('yearly')}>Yearly</button>
             </div>
           </div>
           <div>
-            <div className="text-sm font-medium mb-2">Plan</div>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="moneta:text-sm moneta:font-medium moneta:mb-2">Plan</div>
+            <div className="moneta:grid moneta:grid-cols-3 moneta:gap-2">
               {plans.map(p => (
-                <button key={p.id} type="button" className={`px-3 py-2 rounded border text-sm text-left ${planId===p.id?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setPlanId(p.id)}>
-                  <div className="font-medium">{p.name}</div>
-                  <div className="text-xs text-gray-600">{cycle==='monthly'?`$${p.priceMonthly}/mo`:`$${p.priceYearly}/yr`}</div>
+                <button key={p.id} type="button" className={`moneta:px-3 moneta:py-2 moneta:rounded moneta:border moneta:text-sm moneta:text-left ${planId===p.id?'moneta:bg-blue-50 moneta:border-blue-200 moneta:text-blue-700':'moneta:border-gray-200'}`} onClick={()=>setPlanId(p.id)}>
+                  <div className="moneta:font-medium">{p.name}</div>
+                  <div className="moneta:text-xs moneta:text-gray-600">{cycle==='monthly'?`$${p.priceMonthly}/mo`:`$${p.priceYearly}/yr`}</div>
                 </button>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="space-y-3 mb-4">
-          <div className="text-sm font-medium">Payment method</div>
-          <div className="flex gap-2 mb-2">
-            <button type="button" className={`px-3 py-1.5 rounded border text-sm ${method==='card'?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setMethod('card')}>Card</button>
-            <button type="button" className={`px-3 py-1.5 rounded border text-sm ${method==='paypal'?'bg-blue-50 border-blue-200 text-blue-700':'border-gray-200'}`} onClick={()=>setMethod('paypal')}>PayPal</button>
+        <div className="moneta:space-y-3 moneta:mb-2">
+          <div className="moneta:text-sm moneta:font-medium">Payment method</div>
+          <div className="moneta:flex moneta:gap-2 moneta:mb-2">
+            <button type="button" className={`moneta:px-3 moneta:py-1.5 moneta:rounded moneta:border moneta:text-sm ${method==='card'?'moneta:bg-blue-50 moneta:border-blue-200 moneta:text-blue-700':'moneta:border-gray-200'}`} onClick={()=>setMethod('card')}>Card</button>
+            <button type="button" className={`moneta:px-3 moneta:py-1.5 moneta:rounded moneta:border moneta:text-sm ${method==='paypal'?'moneta:bg-blue-50 moneta:border-blue-200 moneta:text-blue-700':'moneta:border-gray-200'}`} onClick={()=>setMethod('paypal')}>PayPal</button>
           </div>
           {method==='card' ? (
-            <div className="grid grid-cols-2 gap-2">
-              <input className="col-span-2 border border-gray-300 rounded px-3 py-2 text-sm" placeholder="Name on card" value={card.name} onChange={(e)=>setCard({...card, name:e.target.value})} />
-              <input className="col-span-2 border border-gray-300 rounded px-3 py-2 text-sm" placeholder="Card number" value={card.number} onChange={(e)=>setCard({...card, number:e.target.value})} />
-              <input className="border border-gray-300 rounded px-3 py-2 text-sm" placeholder="MM/YY" value={card.exp} onChange={(e)=>setCard({...card, exp:e.target.value})} />
-              <input className="border border-gray-300 rounded px-3 py-2 text-sm" placeholder="CVC" value={card.cvc} onChange={(e)=>setCard({...card, cvc:e.target.value})} />
+            <div className="moneta:grid moneta:grid-cols-2 moneta:gap-2">
+              <input className="moneta:col-span-2 moneta:border moneta:border-gray-300 moneta:rounded moneta:px-3 moneta:py-2 moneta:text-sm" placeholder="Name on card" value={card.name} onChange={(e)=>setCard({...card, name:e.target.value})} />
+              <input className="moneta:col-span-2 moneta:border moneta:border-gray-300 moneta:rounded moneta:px-3 moneta:py-2 moneta:text-sm" placeholder="Card number" value={card.number} onChange={(e)=>setCard({...card, number:e.target.value})} />
+              <input className="moneta:border moneta:border-gray-300 moneta:rounded moneta:px-3 moneta:py-2 moneta:text-sm" placeholder="MM/YY" value={card.exp} onChange={(e)=>setCard({...card, exp:e.target.value})} />
+              <input className="moneta:border moneta:border-gray-300 moneta:rounded moneta:px-3 moneta:py-2 moneta:text-sm" placeholder="CVC" value={card.cvc} onChange={(e)=>setCard({...card, cvc:e.target.value})} />
             </div>
           ) : (
-            <div className="text-sm text-gray-600">You will be redirected to PayPal to complete your purchase.</div>
+            <div className="moneta:text-sm moneta:text-gray-600">You will be redirected to PayPal to complete your purchase.</div>
           )}
         </div>
 
-        <div className="flex items-center justify-between text-sm text-gray-600 mb-3">
+        <div className="moneta:flex moneta:items-center moneta:justify-between moneta:text-sm moneta:text-gray-600 moneta:mb-2">
           <span>Total</span>
-          <span className="font-semibold text-gray-900">${price}{cycle==='monthly'?'/mo':'/yr'}</span>
+          <span className="moneta:font-semibold moneta:text-gray-900">${price}{cycle==='monthly'?'/mo':'/yr'}</span>
         </div>
-
-        <div className="flex justify-end gap-2">
-          <button className="rounded border px-3 py-1.5 text-sm" onClick={onClose}>Cancel</button>
+        <DialogFooter>
+          <button className="moneta:rounded moneta:border moneta:px-3 moneta:py-1.5 moneta:text-sm" onClick={onClose}>Cancel</button>
           <button
-            className="rounded bg-blue-600 text-white px-3 py-1.5 text-sm hover:bg-blue-700"
+            className="moneta:rounded moneta:bg-blue-600 moneta:text-white moneta:px-3 moneta:py-1.5 moneta:text-sm moneta:hover:bg-blue-700"
             onClick={() => {
               const payload = { planId, cycle, method, card }
               if (onCheckout) { onCheckout(payload); return }
@@ -122,9 +124,9 @@ export function UpgradeModal({ open, onClose, onCheckout = undefined, href = '/p
           >
             Pay now
           </button>
-        </div>
-      </div>
-    </div>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   )
 }
 
@@ -136,7 +138,7 @@ export function UpgradeButton({ href = '/pricing', label = 'Pay to unlock', clas
         <button
           type="button"
           data-moneta="upgrade-button"
-          className={`inline-flex items-center gap-2 rounded-md bg-blue-600 text-white px-3 py-2 text-sm hover:bg-blue-700 ${className}`}
+          className={`moneta:inline-flex moneta:items-center moneta:gap-2 moneta:rounded-md moneta:bg-blue-600 moneta:text-white moneta:px-3 moneta:py-2 moneta:text-sm moneta:hover:bg-blue-700 ${className}`}
           onClick={() => setOpen(true)}
         >
           {label}
@@ -149,7 +151,7 @@ export function UpgradeButton({ href = '/pricing', label = 'Pay to unlock', clas
     <a
       href={href}
       data-moneta="upgrade-button"
-      className={`inline-flex items-center gap-2 rounded-md bg-blue-600 text-white px-3 py-2 text-sm hover:bg-blue-700 ${className}`}
+      className={`moneta:inline-flex moneta:items-center moneta:gap-2 moneta:rounded-md moneta:bg-blue-600 moneta:text-white moneta:px-3 moneta:py-2 moneta:text-sm moneta:hover:bg-blue-700 ${className}`}
     >
       {label}
     </a>
@@ -158,12 +160,12 @@ export function UpgradeButton({ href = '/pricing', label = 'Pay to unlock', clas
 
 export function PaywallOverlay({ children, href = '/pricing', label = 'Pay to unlock', className = '', backdropClassName = '', contentClassName = '', buttonClassName = '' }) {
   return (
-    <div className={`relative ${className}`} data-moneta="paywall-overlay">
-      <div className={`pointer-events-none blur-sm select-none ${contentClassName}`} data-moneta="blurred-content">
+    <div className={`moneta:relative ${className}`} data-moneta="paywall-overlay">
+      <div className={`moneta:pointer-events-none moneta:blur-sm moneta:select-none ${contentClassName}`} data-moneta="blurred-content">
         {children}
       </div>
-      <div className={`absolute inset-0 flex items-center justify-center ${backdropClassName}`} data-moneta="overlay-backdrop">
-        <div className="rounded-md bg-black/40 px-4 py-3">
+      <div className={`moneta:absolute moneta:inset-0 moneta:flex moneta:items-center moneta:justify-center ${backdropClassName}`} data-moneta="overlay-backdrop">
+        <div className="moneta:rounded-md moneta:bg-black/40 moneta:px-4 moneta:py-3">
           <UpgradeButton href={href} label={label} className={buttonClassName} />
         </div>
       </div>
@@ -183,13 +185,13 @@ export function UsageMeter({ used, limit }) {
   const ratio = limit > 0 ? Math.min(1, used / limit) : 0
   const pct = Math.round(ratio * 100)
   return (
-    <div className="w-full max-w-md">
-      <div className="flex justify-between text-xs mb-1">
+    <div className="moneta:w-full moneta:max-w-md">
+      <div className="moneta:flex moneta:justify-between moneta:text-xs moneta:mb-1">
         <span>Usage</span>
         <span>{used} / {limit}</span>
       </div>
-      <div className="h-2 w-full rounded bg-gray-200 overflow-hidden">
-        <div className="h-2 bg-blue-600" style={{ width: `${pct}%` }} />
+      <div className="moneta:h-2 moneta:w-full moneta:rounded moneta:bg-gray-200 moneta:overflow-hidden">
+        <div className="moneta:h-2 moneta:bg-blue-600" style={{ width: `${pct}%` }} />
       </div>
     </div>
   )
@@ -202,42 +204,42 @@ export function UsageGate({ allowed, children, fallback }) {
 
 export function AccessBanner({ status, expiresAt, className = '' }) {
   if (!status || status === ACCESS_STATUS.OK) return null
-  const base = 'rounded-md px-3 py-2 text-sm mb-3'
+  const base = 'moneta:rounded-md moneta:px-3 moneta:py-2 moneta:text-sm moneta:mb-3'
   switch (status) {
     case ACCESS_STATUS.EXPIRING_SOON:
       return (
-        <div className={`${base} bg-amber-50 text-amber-800 border border-amber-200 ${className}`} data-moneta="banner" data-status="expiringSoon">
+        <div className={`${base} moneta:bg-amber-50 moneta:text-amber-800 moneta:border moneta:border-amber-200 ${className}`} data-moneta="banner" data-status="expiringSoon">
           Your access is expiring soon{expiresAt ? ` (by ${new Date(expiresAt).toLocaleDateString()})` : ''}.
         </div>
       )
     case ACCESS_STATUS.EXPIRED:
       return (
-        <div className={`${base} bg-red-50 text-red-700 border border-red-200 ${className}`} data-moneta="banner" data-status="expired">
+        <div className={`${base} moneta:bg-red-50 moneta:text-red-700 moneta:border moneta:border-red-200 ${className}`} data-moneta="banner" data-status="expired">
           Your membership has expired. Please renew to continue.
         </div>
       )
     case ACCESS_STATUS.NO_CONTENT:
       return (
-        <div className={`${base} bg-gray-50 text-gray-700 border border-gray-200 ${className}`} data-moneta="banner" data-status="noContent">
+        <div className={`${base} moneta:bg-gray-50 moneta:text-gray-700 moneta:border moneta:border-gray-200 ${className}`} data-moneta="banner" data-status="noContent">
           No content available yet.
         </div>
       )
     case ACCESS_STATUS.SOFT_BLOCKED:
       return (
-        <div className={`${base} bg-blue-50 text-blue-700 border border-blue-200 ${className}`} data-moneta="banner" data-status="softBlocked">
+        <div className={`${base} moneta:bg-blue-50 moneta:text-blue-700 moneta:border moneta:border-blue-200 ${className}`} data-moneta="banner" data-status="softBlocked">
           Limited preview mode.
         </div>
       )
     case ACCESS_STATUS.QUOTA_EXCEEDED:
       return (
-        <div className={`${base} bg-purple-50 text-purple-700 border border-purple-200 ${className}`} data-moneta="banner" data-status="quotaExceeded">
+        <div className={`${base} moneta:bg-purple-50 moneta:text-purple-700 moneta:border moneta:border-purple-200 ${className}`} data-moneta="banner" data-status="quotaExceeded">
           You have reached your quota. Please upgrade your plan.
         </div>
       )
     case ACCESS_STATUS.BLOCKED:
     default:
       return (
-        <div className={`${base} bg-red-50 text-red-700 border border-red-200 ${className}`} data-moneta="banner" data-status="blocked">
+        <div className={`${base} moneta:bg-red-50 moneta:text-red-700 moneta:border moneta:border-red-200 ${className}`} data-moneta="banner" data-status="blocked">
           Access denied. Please upgrade to view this content.
         </div>
       )
@@ -246,8 +248,8 @@ export function AccessBanner({ status, expiresAt, className = '' }) {
 
 export function EmptyPlaceholder({ title = 'Nothing here yet', description = 'Come back later for new content.', className = '' }) {
   return (
-    <div className={`rounded-md border border-dashed p-6 text-center text-sm text-neutral-500 ${className}`} data-moneta="empty">
-      <div className="font-medium mb-1">{title}</div>
+    <div className={`moneta:rounded-md moneta:border moneta:border-dashed moneta:p-6 moneta:text-center moneta:text-sm moneta:text-neutral-500 ${className}`} data-moneta="empty">
+      <div className="moneta:font-medium moneta:mb-1">{title}</div>
       <div>{description}</div>
     </div>
   )

@@ -173,10 +173,10 @@ import { PaywallOverlay, AccessBanner, EmptyPlaceholder } from './moneta-client.
 
 function DefaultListPlaceholder() {
   return (
-    <ul className="space-y-3">
-      <li className="rounded border p-3"><div className="font-semibold">Post title example</div><div className="text-sm text-gray-600 dark:text-gray-300">Post preview content…</div></li>
-      <li className="rounded border p-3"><div className="font-semibold">Post title example</div><div className="text-sm text-gray-600 dark:text-gray-300">Post preview content…</div></li>
-      <li className="rounded border p-3"><div className="font-semibold">Post title example</div><div className="text-sm text-gray-600 dark:text-gray-300">Post preview content…</div></li>
+    <ul className="moneta:space-y-3">
+      <li className="moneta:rounded moneta:border moneta:p-3"><div className="moneta:font-semibold">Post title example</div><div className="moneta:text-sm moneta:text-gray-600 moneta:dark:text-gray-300">Post preview content…</div></li>
+      <li className="moneta:rounded moneta:border moneta:p-3"><div className="moneta:font-semibold">Post title example</div><div className="moneta:text-sm moneta:text-gray-600 moneta:dark:text-gray-300">Post preview content…</div></li>
+      <li className="moneta:rounded moneta:border moneta:p-3"><div className="moneta:font-semibold">Post title example</div><div className="moneta:text-sm moneta:text-gray-600 moneta:dark:text-gray-300">Post preview content…</div></li>
     </ul>
   )
 }
