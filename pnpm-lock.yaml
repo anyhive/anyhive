@@ -331,6 +331,9 @@ importers:
 
   packages/react:
     dependencies:
+      '@moneta-kit/ui':
+        specifier: workspace:*
+        version: link:../ui
       react:
         specifier: '>=18'
         version: 19.1.1

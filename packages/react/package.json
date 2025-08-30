@@ -41,6 +41,9 @@
   "peerDependencies": {
     "react": ">=18"
   },
+  "dependencies": {
+    "@moneta-kit/ui": "workspace:*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "tailwindcss -i src/styles/tailwind.css -o styles.css --minify"
