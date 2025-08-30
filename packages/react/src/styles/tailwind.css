@@ -1,5 +1,6 @@
 @import "tailwindcss" prefix(moneta);
 @source "../../*.{js,jsx,ts,tsx}";
+@source "../../../ui/src/components/**/*.{js,jsx,ts,tsx}";
 
 @theme inline {
   --color-moneta-overlay: rgba(0,0,0,0.4);
