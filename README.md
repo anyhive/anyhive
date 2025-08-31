@@ -4,8 +4,6 @@ Build your product. We handle payments, billing, and compliance.
 
 Moneta Kit is an open-source, developer-first Merchant of Record (MoR) and billing layer. With Moneta Kit, you can build your own checkout and customer portals with hosted UI or embeddable components within minutes.
 
-We give product teams a PSP‑agnostic payment stack, modern metered/paywall tooling, and compliance built‑in — so you can ship faster without vendor lock‑in.
-
 > **The open-source Merchant of Record for developers.**
 > Open-source billing — pricing, metering, and compliance made simple.
 
@@ -13,20 +11,15 @@ We give product teams a PSP‑agnostic payment stack, modern metered/paywall too
 - Metered billing for tools & AI: quotas, rate limits, overage prompts, and guided upgrades.
 - Compliance from day one: Tax/VAT/GST/JCT ready, with region‑specific modules on the roadmap.
 - Open, portable, and programmable: Your data, your PSPs, your rules.
-- PSP‑agnostic by design: Bring your own PSPs (Stripe, PayPal, PayPay, LINE Pay, Momo…) and switch with confidence.
-
 
 Scales your startup from Hello World to IPO — without getting stuck in someone else’s billing walled garden.
 
-Think **Stripe-like developer experience**, but available for every country’s PSP and tax system.
-
 ## What is Moneta Kit?
 
-Moneta Kit is open-source infrastructure for **billing and Merchant of Record (MoR)**.
+Moneta Kit is open-source **Merchant of Record (MoR)** with payments, subscriptions, and compliance.
 
-It unifies:
+It includes:
 
-- 💳 Payments & multi-PSP integrations
 - 📊 Subscriptions & usage-based pricing
 - ✅ Global tax, fraud, and compliance
 - 🔑 Entitlement management & content delivery
@@ -42,6 +35,7 @@ Near-term
 - [ ] Metered billing for tools/AI: quotas, rate limits, overage prompts, upgrade flows.
 - [ ] Default modern UI themes (Minimal, Neobrutal) with data-attributes/class hooks for customization.
 - [ ] Frictionless developer onboarding: polished Next.js/React Router examples, quickstart CLI.
+- [ ] By default, Moneta Kit will use Stripe as the default PSP since it is the most widely used and supported PSP.
 
 Mid-term
 
@@ -58,7 +52,9 @@ Long-term
 
 ## 💡 Vision
 
-We believe founders, startups, and businesses should focus on product, not payments. Moneta Kit will become the global abstraction layer for payments and compliance — PSP‑agnostic, tax‑aware, and programmable — so teams can ship, scale, and switch providers without fear.
+We believe founders, startups, and businesses should focus on product, not payments and tax compliance.
+
+Moneta Kit will become the global abstraction layer for payments and compliance — PSP‑agnostic, tax‑aware, and programmable — so teams can ship, scale, and switch providers without fear. Think **Stripe-like developer experience**, but available for every country’s PSP and tax system.
 
 ## 🚀 Why Moneta?
 
