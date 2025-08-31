@@ -1,0 +1,17 @@
+{
+  "name": "moneta-kit-docs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "mintlify dev",
+    "broken-links": "mintlify broken-links"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mintlify": "^4.2.94"
+  }
+}
