@@ -2,16 +2,19 @@
 
 Build your product. We handle payments, billing, and compliance.
 
-Moneta Kit is an open-source, developer-first Merchant of Record (MoR) and billing layer. We give product teams a PSP‑agnostic payment stack, modern metered/paywall tooling, and compliance built‑in — so you can ship faster without vendor lock‑in.
+Moneta Kit is an open-source, developer-first Merchant of Record (MoR) and billing layer. With Moneta Kit, you can build your own checkout and customer portals with hosted UI or embeddable components within minutes.
+
+We give product teams a PSP‑agnostic payment stack, modern metered/paywall tooling, and compliance built‑in — so you can ship faster without vendor lock‑in.
 
 > **The open-source Merchant of Record for developers.**
 > Open-source billing — pricing, metering, and compliance made simple.
 
-- PSP‑agnostic by design: Bring your own PSPs (Stripe, PayPal, PayPay, LINE Pay, Momo…) and switch with confidence.
 - Server‑first access control: RSC/SSR‑friendly paywall with one‑line gating (`paywall().render`) or explicit `fetchIfAllowed`.
 - Metered billing for tools & AI: quotas, rate limits, overage prompts, and guided upgrades.
 - Compliance from day one: Tax/VAT/GST/JCT ready, with region‑specific modules on the roadmap.
 - Open, portable, and programmable: Your data, your PSPs, your rules.
+- PSP‑agnostic by design: Bring your own PSPs (Stripe, PayPal, PayPay, LINE Pay, Momo…) and switch with confidence.
+
 
 Scales your startup from Hello World to IPO — without getting stuck in someone else’s billing walled garden.
 

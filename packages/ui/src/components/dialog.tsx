@@ -72,7 +72,7 @@ function DialogContent({
             className="moneta:ring-offset-background moneta:focus:ring-ring moneta:data-[state=open]:bg-accent moneta:data-[state=open]:text-muted-foreground moneta:absolute moneta:top-4 moneta:right-4 moneta:rounded-xs moneta:opacity-70 moneta:transition-opacity moneta:hover:opacity-100 moneta:focus:ring-2 moneta:focus:ring-offset-2 moneta:focus:outline-hidden moneta:disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
           >
             <XIcon />
-            <span className="sr-only">Close</span>
+            <span className="moneta:sr-only">Close</span>
           </DialogPrimitive.Close>
         )}
       </DialogPrimitive.Content>
