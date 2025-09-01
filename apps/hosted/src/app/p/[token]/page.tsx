@@ -1,7 +1,8 @@
 import { redirect } from 'next/navigation'
 
-export default function PAlias({ params }: { params: { token: string } }) {
-  redirect(`/portal/${params.token}`)
+export default async function PAlias({ params }: { params: Promise<{ token: string }> }) {
+  const { token } = await params
+  redirect(`/portal/${token}`)
 }
 
 

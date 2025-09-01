@@ -1,7 +1,8 @@
 import { redirect } from 'next/navigation'
 
-export default function CAlias({ params }: { params: { token: string } }) {
-  redirect(`/checkout/${params.token}`)
+export default async function CAlias({ params }: { params: Promise<{ token: string }> }) {
+  const { token } = await params
+  redirect(`/checkout/${token}`)
 }
 
 

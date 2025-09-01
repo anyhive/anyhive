@@ -2,7 +2,7 @@ import { headers } from 'next/headers'
 import { portalSessions } from '@/lib/session-store'
 
 async function fetchBrand(tenantId: string) {
-  const hdrs = headers()
+  const hdrs = await headers()
   const host = hdrs.get('host')
   const protocol = host && !host.startsWith('localhost') ? 'https' : 'http'
   const base = host ? `${protocol}://${host}` : ''
@@ -10,16 +10,17 @@ async function fetchBrand(tenantId: string) {
   return res.json()
 }
 
-export default async function PortalPage({ params }: { params: { customerId: string } }) {
+export default async function PortalPage({ params }: { params: Promise<{ customerId: string }> }) {
   const tenantId = 'tn_demo_local'
   const brand = await fetchBrand(tenantId)
-  const payload = portalSessions.get(params.customerId)
+  const { customerId } = await params
+  const payload = portalSessions.get(customerId)
   return (
     <main className="min-h-screen flex items-center justify-center p-6" style={{ background: '#f9fafb' }}>
       <div className="w-full max-w-3xl bg-white shadow rounded-xl p-6">
         <div className="flex items-center justify-between">
           <div className="font-semibold">{brand.name}</div>
-          <div className="text-xs text-gray-500">Customer: {params.customerId}</div>
+          <div className="text-xs text-gray-500">Customer: {customerId}</div>
         </div>
         <h1 className="text-xl font-bold mt-4">Customer Portal</h1>
         <p className="text-gray-600 text-sm">Manage your subscriptions, billing details, and invoices.</p>
