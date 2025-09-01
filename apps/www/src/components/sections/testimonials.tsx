@@ -25,7 +25,7 @@ export function Testimonials(): React.ReactElement {
             {showAll ? "Show less" : "See more"}
           </Button>
 
-          {siteConfig.testimonials.map((testimonial, index) => (
+          {siteConfig.testimonials.map((testimonial: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

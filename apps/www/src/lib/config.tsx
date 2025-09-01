@@ -10,7 +10,7 @@ import {
 
 export const BLUR_FADE_DELAY = 0.15;
 
-export const siteConfig = {
+export const siteConfig: any = {
   name: "Moneta Kit",
   description: "Open source payments and usage-based billing platform",
   cta: "Get Started",

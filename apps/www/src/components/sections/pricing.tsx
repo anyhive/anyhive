@@ -141,7 +141,7 @@ function PricingTier({
 
         <CardContent className="flex-grow p-4 pt-5">
           <ul className="space-y-2">
-            {tier.features.map((feature, featureIndex) => (
+            {tier.features.map((feature: any, featureIndex: number) => (
               <li key={featureIndex} className="flex items-center">
                 <Check className="mr-2 size-4 text-green-500" />
                 <span className="font-medium">{feature}</span>
@@ -218,7 +218,7 @@ export function Pricing(): React.ReactElement {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3">
-          {siteConfig.pricing.map((tier, index) => (
+          {siteConfig.pricing.map((tier: any, index: number) => (
             <PricingTier key={index} tier={tier} billingCycle={billingCycle} />
           ))}
         </div>

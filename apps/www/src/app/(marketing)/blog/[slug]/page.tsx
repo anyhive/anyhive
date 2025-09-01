@@ -94,7 +94,7 @@ export default async function Page({
                 width={1920}
                 height={1080}
                 src={post.metadata.image}
-                alt={post.metadata.title}
+                alt={post.metadata.title || "Blog post image"}
                 className="w-full h-auto rounded-lg border"
               />
             </div>
@@ -109,15 +109,15 @@ export default async function Page({
           <Suspense fallback={<p className="h-5" />}>
             <div className="flex items-center space-x-2">
               <time dateTime={post.metadata.publishedAt} className="text-sm">
-                {formatDate(post.metadata.publishedAt)}
+                {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
               </time>
             </div>
           </Suspense>
         </div>
         <div className="flex items-center space-x-2">
           <Author
-            twitterUsername={post.metadata.author}
-            name={post.metadata.author}
+            twitterUsername={post.metadata.author || ""}
+            name={post.metadata.author || "Unknown"}
             image={"/author.jpg"}
           />
         </div>

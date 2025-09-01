@@ -20,13 +20,17 @@ export type Post = {
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   let match = frontmatterRegex.exec(fileContent);
-  let frontMatterBlock = match![1];
+  if (!match || !match[1]) {
+    return { metadata: {}, content: fileContent };
+  }
+  let frontMatterBlock = match[1];
   let content = fileContent.replace(frontmatterRegex, "").trim();
   let frontMatterLines = frontMatterBlock.trim().split("\n");
   let metadata: Partial<Post> = {};
 
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(": ");
+    if (!key) return;
     let value = valueArr.join(": ").trim();
     value = value.replace(/^['"](.*)['"]$/, "$1"); // Remove quotes
     metadata[key.trim() as keyof Post] = value;
@@ -64,13 +68,13 @@ export async function getPost(slug: string) {
   const { content: rawContent, data: metadata } = parseFrontmatter(source);
   const content = await markdownToHTML(rawContent);
   const defaultImage = `${siteConfig.url}/og?title=${encodeURIComponent(
-    metadata.title
+    metadata?.title || "Blog Post"
   )}`;
   return {
     source: content,
     metadata: {
       ...metadata,
-      image: metadata.image || defaultImage,
+      image: metadata?.image || defaultImage,
     },
     slug,
   };
