@@ -56,27 +56,19 @@ We believe founders, startups, and businesses should focus on product, not payme
 
 Moneta Kit will become the global abstraction layer for payments and compliance — PSP‑agnostic, tax‑aware, and programmable — so teams can ship, scale, and switch providers without fear. Think **Stripe-like developer experience**, but available for every country’s PSP and tax system.
 
-## 🚀 Why Moneta?
-
-- **Stripe is not global**: In Japan, PayPay dominates. In Thailand, LINE Pay. In Vietnam, Momo. Each country has its own PSP.
-- **APIs are fragmented**: One-time payments, subscriptions, and usage-based billing all differ.
-- **Tax compliance is complex**: VAT, GST, and consumption tax rules are fragmented and difficult to maintain.
-
-**Moneta solves this by providing one unified API.**
-
 ## ✨ Features
 
 - Zero‑friction integration: Keep your code. Add a few lines to gate content or track usage.
 - No lock‑in: Swap PSPs, export data, and evolve pricing without rewrites.
 - Production‑grade UX: Modern defaults (Minimal, Neobrutal) with simple theming or full control via data‑attributes.
 
-- 🧩 **Unified Payments API** → Integrate multiple PSPs (Stripe, PayPal, LINE Pay, Momo, etc.)
 - 📦 **Merchant of Record Layer** → We handle compliance and payouts for you.
 - 💳 **Billing Support** → One-time, recurring subscriptions, and usage-based billing.
 - 🌍 **Tax Compliance** → Integrated with Stripe Tax, Anrok, and direct modules in specific countries.
 - 🛠 **Open Source SDKs** → TypeScript-first, with adapters for each PSP.
 - 🖥️ Hosted checkout & customer portals (zero-setup)
 - ⚛️ React components for embeddable, customizable UI
+- 🧩 **Unified Payments API** → Integrate multiple PSPs (Stripe, PayPal, LINE Pay, Momo, etc.)
 
 ## Core Concepts
 
