@@ -18,7 +18,7 @@ export default function OrbitingCircles({
   delay = 10,
   radius = 50,
   path = true,
-}: OrbitingCirclesProps) {
+}: OrbitingCirclesProps): React.ReactElement {
   return (
     <>
       {path && (

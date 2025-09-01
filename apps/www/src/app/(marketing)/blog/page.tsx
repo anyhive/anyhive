@@ -8,7 +8,7 @@ export const metadata = constructMetadata({
   description: `Latest news and updates from ${siteConfig.name}.`,
 });
 
-export default async function Blog() {
+export default async function Blog(): Promise<React.ReactElement> {
   const allPosts = await getBlogPosts();
 
   const articles = await Promise.all(

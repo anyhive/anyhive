@@ -39,10 +39,12 @@ export const FeatureSelector: React.FC<FeatureSelectorProps> = ({
         </div>
       </div>
       <div className="col-span-1 md:col-span-3">
-        <div
-          className="bg-background font-mono text-sm [&>pre]:!bg-transparent [&>pre]:p-4 [&_code]:break-all md:max-h-[45vh] overflow-scroll"
-          dangerouslySetInnerHTML={{ __html: features[selectedIndex].code }}
-        />
+        {features[selectedIndex] ? (
+          <div
+            className="bg-background font-mono text-sm [&>pre]:!bg-transparent [&>pre]:p-4 [&_code]:break-all md:max-h-[45vh] overflow-scroll"
+            dangerouslySetInnerHTML={{ __html: features[selectedIndex].code }}
+          />
+        ) : null}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
 
-export function CTA() {
+export function CTA(): React.ReactElement {
   return (
     <Section id="cta">
       <div className="border overflow-hidden relative text-center py-16 mx-auto">

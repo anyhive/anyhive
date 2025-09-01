@@ -169,7 +169,7 @@ export async function Protected(props) {
 export { Protected as Paywalled }
 
 // Helper: opinionated paywall with conventional UI, preserving fetchIfAllowed style
-import { PaywallOverlay, AccessBanner, EmptyPlaceholder } from './moneta-client.js'
+import { PaywallOverlay, AccessBanner, EmptyPlaceholder } from './moneta-client.jsx'
 
 function DefaultListPlaceholder() {
   return (

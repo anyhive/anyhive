@@ -166,7 +166,7 @@ function PricingTier({
   );
 }
 
-export function Pricing() {
+export function Pricing(): React.ReactElement {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
     "yearly"
   );

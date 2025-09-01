@@ -8,11 +8,13 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
-export async function generateMetadata(props: {
+export async function generateMetadata({
+  params,
+}: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata | undefined> {
-  const params = await props.params;
-  let post = await getPost(params.slug);
+  const { slug } = await params;
+  let post = await getPost(slug);
   let {
     title,
     publishedAt: publishedTime,
@@ -44,12 +46,15 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function Page(props: {
+export default async function Page({
+  params,
+  searchParams,
+}: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
-  const params = await props.params;
-  const post = await getPost(params.slug);
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+}): Promise<React.ReactElement> {
+  const { slug } = await params;
+  const post = await getPost(slug);
   if (!post) {
     notFound();
   }

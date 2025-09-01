@@ -11,7 +11,7 @@ import { Statistics } from "@/components/sections/statistics";
 import { Testimonials } from "@/components/sections/testimonials";
 import { UseCases } from "@/components/sections/use-cases";
 
-export default function Home() {
+export default function Home(): React.ReactElement {
   return (
     <main>
       <Header />

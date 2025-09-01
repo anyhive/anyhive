@@ -8,7 +8,6 @@ import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { lazy, Suspense, useEffect, useState } from "react";
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -119,60 +118,15 @@ function HeroCTA() {
     </div>
   );
 }
-const LazySpline = lazy(() => import("@splinetool/react-spline"));
-
-export function Hero() {
-  const [showSpline, setShowSpline] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // Assuming 1024px is the breakpoint for lg
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    // Don't show on mobile
-    if (!isMobile) {
-      const timer = setTimeout(() => {
-        setShowSpline(true);
-      }, 1000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isMobile]);
-
+export function Hero(): React.ReactElement {
   return (
     <Section id="hero">
-      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-x-8 w-full p-6 lg:p-12 border-x overflow-hidden">
-        <div className="flex flex-col justify-start items-start lg:col-span-1">
+      <div className="relative w-full p-6 lg:p-12 border-x overflow-hidden">
+        <div className="flex flex-col justify-start items-start">
           <HeroPill />
           <HeroTitles />
           <HeroCTA />
         </div>
-        {!isMobile && (
-          <div className="relative lg:h-full lg:col-span-1">
-            <Suspense>
-              {showSpline && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                >
-                  <LazySpline
-                    scene="https://prod.spline.design/mZBrYNcnoESGlTUG/scene.splinecode"
-                    className="absolute inset-0 w-full h-full origin-top-left flex items-center justify-center"
-                  />
-                </motion.div>
-              )}
-            </Suspense>
-          </div>
-        )}
       </div>
     </Section>
   );

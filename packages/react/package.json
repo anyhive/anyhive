@@ -8,25 +8,25 @@
   "main": "index.js",
   "exports": {
     ".": {
-      "react-server": "./moneta-server.js",
+      "react-server": "./moneta-server.jsx",
       "types": "./index.d.ts",
       "import": "./index.js",
       "require": "./index.js"
     },
     "./client": {
       "types": "./moneta-client.d.ts",
-      "import": "./moneta-client.js",
-      "require": "./moneta-client.js",
+      "import": "./moneta-client.jsx",
+      "require": "./moneta-client.jsx",
       "style": "./styles.css"
     },
     "./next": {
-      "import": "./moneta-client.js",
-      "require": "./moneta-client.js"
+      "import": "./moneta-client.jsx",
+      "require": "./moneta-client.jsx"
     },
     "./server": {
       "types": "./moneta-server.d.ts",
-      "import": "./moneta-server.js",
-      "require": "./moneta-server.js"
+      "import": "./moneta-server.jsx",
+      "require": "./moneta-server.jsx"
     },
     "./styles.css": {
       "default": "./styles.css"

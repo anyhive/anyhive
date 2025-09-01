@@ -147,7 +147,7 @@ export function useMonetaKit(options = {}) {
   }
 }
 
-export { getMoneta as getMonetaKit } from './moneta-server.js'
+export { getMoneta as getMonetaKit } from './moneta-server.jsx'
 
 // Shared access status constants (server/client-agnostic)
 export const ACCESS_STATUS = Object.freeze({

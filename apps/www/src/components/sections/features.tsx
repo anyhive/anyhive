@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-export function Features() {
+export function Features(): React.ReactElement {
   const services = siteConfig.features;
   return (
     <Section id="features" title="Features">

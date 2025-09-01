@@ -1,8 +1,28 @@
 import { DiscordLogoIcon } from "@radix-ui/react-icons";
 
-type IconProps = React.HTMLAttributes<SVGElement>;
+type IconProps = Omit<React.SVGProps<SVGSVGElement>, "children">;
 
-export const Icons = {
+type IconComponent = React.ComponentType<IconProps>;
+
+type IconsMap = {
+  logo: IconComponent;
+  discord: IconComponent;
+  twitter: IconComponent;
+  github: IconComponent;
+  radix: IconComponent;
+  aria: IconComponent;
+  npm: IconComponent;
+  yarn: IconComponent;
+  pnpm: IconComponent;
+  react: IconComponent;
+  tailwind: IconComponent;
+  google: IconComponent;
+  apple: IconComponent;
+  paypal: IconComponent;
+  spinner: IconComponent;
+};
+
+export const Icons: IconsMap = {
   logo: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

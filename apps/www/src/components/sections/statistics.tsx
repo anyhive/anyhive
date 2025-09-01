@@ -23,7 +23,7 @@ const stats = [
   },
 ];
 
-export function Statistics() {
+export function Statistics(): React.ReactElement {
   return (
     <Section id="statistics" title="Statistics">
       <div

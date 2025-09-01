@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { IoMenuSharp } from "react-icons/io5";
 
-export function MobileDrawer() {
+export function MobileDrawer(): React.ReactElement {
   return (
     <Drawer>
       <DrawerTrigger>

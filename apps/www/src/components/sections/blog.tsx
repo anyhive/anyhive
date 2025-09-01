@@ -2,7 +2,7 @@ import BlogCard from "@/components/blog-card";
 import { Section } from "@/components/section";
 import { getBlogPosts } from "@/lib/blog";
 
-export async function Blog() {
+export async function Blog(): Promise<React.ReactElement> {
   const allPosts = await getBlogPosts();
 
   const articles = await Promise.all(

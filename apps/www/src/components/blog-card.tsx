@@ -9,7 +9,7 @@ export default function BlogCard({
 }: {
   data: Post;
   priority?: boolean;
-}) {
+}): React.ReactElement {
   return (
     <Link
       href={`/blog/${data.slug}`}

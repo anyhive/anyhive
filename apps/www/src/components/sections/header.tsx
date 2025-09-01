@@ -10,7 +10,7 @@ import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export function Header() {
+export function Header(): React.ReactElement {
   return (
     <header className="sticky top-0 h-[var(--header-height)] z-50 p-0 bg-background/60 backdrop-blur">
       <div className="flex justify-between items-center container mx-auto p-2">

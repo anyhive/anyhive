@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export function Testimonials() {
+export function Testimonials(): React.ReactElement {
   const [showAll, setShowAll] = useState(false);
   const initialDisplayCount = 9;
 

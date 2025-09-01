@@ -85,7 +85,7 @@ app.post("/v1/webhooks/:psp", express.raw({ type: "application/json" }), (req, r
   },
 ];
 
-export async function Examples() {
+export async function Examples(): Promise<React.ReactElement> {
   const features = await Promise.all(
     featureOptions.map(async (feature) => ({
       ...feature,

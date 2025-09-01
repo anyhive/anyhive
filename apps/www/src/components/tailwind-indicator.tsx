@@ -1,4 +1,4 @@
-export function TailwindIndicator() {
+export function TailwindIndicator(): React.ReactElement | null {
   // Don't show in production
   if (process.env.NODE_ENV === "production") return null;
   return (

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-export function ThemeToggle() {
+export function ThemeToggle(): React.ReactElement | null {
   const { setTheme, theme } = useTheme();
   // Don't show in production
   if (process.env.NODE_ENV === "production") return null;

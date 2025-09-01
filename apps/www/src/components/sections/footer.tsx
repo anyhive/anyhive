@@ -2,7 +2,7 @@ import { Icons } from "@/components/icons";
 import { BorderText } from "@/components/ui/border-number";
 import { siteConfig } from "@/lib/config";
 
-export function Footer() {
+export function Footer(): React.ReactElement {
   return (
     <footer className="flex flex-col gap-y-5 rounded-lg p-5  container max-w-[var(--container-max-width)] mx-auto">
       <div className="flex items-center justify-between">

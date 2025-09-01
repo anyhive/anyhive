@@ -34,7 +34,7 @@ const contributors = [
   },
 ];
 
-export function Community() {
+export function Community(): React.ReactElement {
   return (
     <Section id="community" title="Community">
       <div className="border-x border-t overflow-hidden relative">

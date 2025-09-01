@@ -14,7 +14,7 @@ export default function Author({
   twitterUsername: string;
   updatedAt?: string;
   imageOnly?: boolean;
-}) {
+}): React.ReactElement {
   if (imageOnly) {
     return (
       <Image

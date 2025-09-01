@@ -26,7 +26,7 @@ const containerVariants = {
   },
 };
 
-export function Card1() {
+export function Card1(): React.ReactElement {
   const variant1 = {
     initial: {
       scale: 0.87,
@@ -348,7 +348,7 @@ const Card3 = () => {
   );
 };
 
-export function UseCases() {
+export function UseCases(): React.ReactElement {
   return (
     <Section id="use-cases" title="Use Cases">
       <div className="grid lg:grid-cols-3 h-full border border-b-0">
