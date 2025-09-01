@@ -6,7 +6,7 @@ import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
+import React from "react";
 
 export async function generateMetadata({
   params,
@@ -83,7 +83,7 @@ export default async function Page({
         }}
       />
       <div className="mx-auto w-full max-w-[800px] px-4 sm:px-6 lg:px-8 space-y-4 my-12">
-        <Suspense
+        <React.Suspense
           fallback={
             <div className="mb-8 w-full h-64 bg-muted animate-pulse rounded-lg"></div>
           }
@@ -99,20 +99,20 @@ export default async function Page({
               />
             </div>
           )}
-        </Suspense>
+        </React.Suspense>
         <div className="flex flex-col">
           <h1 className="title font-medium text-3xl tracking-tighter">
             {post.metadata.title}
           </h1>
         </div>
         <div className="flex justify-between items-center text-sm">
-          <Suspense fallback={<p className="h-5" />}>
+          <React.Suspense fallback={<p className="h-5" />}>
             <div className="flex items-center space-x-2">
               <time dateTime={post.metadata.publishedAt} className="text-sm">
                 {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
               </time>
             </div>
-          </Suspense>
+          </React.Suspense>
         </div>
         <div className="flex items-center space-x-2">
           <Author
