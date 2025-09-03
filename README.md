@@ -20,6 +20,14 @@ Anyhive is open-source **Merchant of Record (MoR)** with payments, subscriptions
 
 It includes:
 
+- A React SDK for embedding pricing tables, checkout, and customer portals.
+- A Next.js hosted checkout page and customer portal.
+- A CLI for installing and managing your pricing plans, subscriptions, and configuration.
+
+100% open-source, 100% portable, 100% programmable.
+
+It includes:
+
 - 📊 Subscriptions & usage-based pricing
 - ✅ Global tax, fraud, and compliance
 - 🔑 Entitlement management & content delivery
@@ -188,6 +196,84 @@ export default async function Page() {
     </section>
   );
 }
+```
+
+## CLI
+
+The Anyhive CLI helps you initialize projects and set up a local development environment.
+
+### Installation
+
+The CLI is included in this monorepo. In a standalone setup it can be installed globally:
+
+```bash
+npm i -g anyhive
+```
+
+### Global options
+
+- `--env <sandbox|production>`: Select target environment for commands
+- `--sandbox`: Alias of `--env sandbox`
+
+Environment resolution priority:
+
+1. CLI flags (`--env` or `--sandbox`)
+2. Environment variable `ANYHIVE_MODE`
+3. Default: `production`
+
+### Commands
+
+#### init
+
+Initialize an Anyhive project configuration.
+
+```bash
+anyhive init --workspace <id> --token <installToken> [--dir <path>] [--force] [--env sandbox|production]
+```
+
+Notes:
+- Creates `anyhive.config.json` in the target directory
+- Respects `--env` to set the initial `mode` field (e.g. `sandbox` or `production`)
+
+#### verify
+
+Verify your installation (demo output).
+
+```bash
+anyhive verify [--env sandbox|production]
+```
+
+#### whoami
+
+Display the current user and environment (demo output).
+
+```bash
+anyhive whoami [--env sandbox|production]
+```
+
+#### sandbox
+
+Create or update a local `.env` with a sandbox publishable key for local testing.
+
+```bash
+anyhive sandbox [--dir <path>] [--key <publishableKey>] [--force] [--write-all]
+```
+
+Options:
+- `--dir <path>`: Directory for the `.env` file (default: current directory)
+- `--key <publishableKey>`: Provide a specific key instead of generating one
+- `--force`: Overwrite existing `ANYHIVE_PUBLISHABLE_KEY` in `.env`
+- `--write-all`: Also upsert the following variables:
+  - `ANYHIVE_MODE=sandbox`
+  - `ANYHIVE_API_BASE_URL=https://sandbox.api.anyhive.dev`
+  - `ANYHIVE_WORKSPACE_ID=ws_sandbox_demo`
+
+Examples:
+
+```bash
+anyhive init --workspace ws_123 --token it_456 --env sandbox
+anyhive verify --env sandbox
+anyhive sandbox --dir . --write-all
 ```
 
 ## Tech Stack
