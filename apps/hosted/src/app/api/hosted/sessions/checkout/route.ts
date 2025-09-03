@@ -6,7 +6,7 @@ function randomId(prefix: string) {
 }
 
 export async function POST(request: Request) {
-  const host = request.headers.get('host') || process.env.NEXT_PUBLIC_HOSTED_DOMAIN || 'monetapay.com'
+  const host = request.headers.get('host') || process.env.NEXT_PUBLIC_HOSTED_DOMAIN || 'anyhivepay.com'
   const protocol = host.startsWith('localhost') ? 'http' : 'https'
   const token = randomId('cs')
   const body = await request.json().catch(() => ({} as any))

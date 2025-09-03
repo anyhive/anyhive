@@ -7,7 +7,7 @@ const onboardingSteps = [
   {
     id: "welcome",
     title: "Welcome",
-    description: "Get started with Moneta"
+    description: "Get started with Anyhive"
   },
   {
     id: "organization",
@@ -42,7 +42,7 @@ const onboardingSteps = [
   {
     id: "complete",
     title: "Setup Complete",
-    description: "Welcome to Moneta!"
+    description: "Welcome to Anyhive!"
   }
 ]
 
@@ -58,7 +58,7 @@ export default function OnboardingLayout({
           <div className="flex flex-col gap-y-12 h-full">
             <div className="mb-8">
               <div className="inline-flex items-center text-gray-200 font-medium gap-x-1">
-                <span className="text-2xl font-bold">Moneta</span>
+                <span className="text-2xl font-bold">Anyhive</span>
                 <span className="text-gray-300 text-xs font-normal">
                   Payment Infrastructure
                 </span>
@@ -78,7 +78,7 @@ export default function OnboardingLayout({
               </li>
             </ul>
             <span className="text-gray-600 text-xs font-normal self-start">
-              &copy; {new Date().getFullYear()} Moneta. All rights reserved.
+              &copy; {new Date().getFullYear()} Anyhive. All rights reserved.
             </span>
           </div>
         </div>

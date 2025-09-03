@@ -11,12 +11,12 @@ import {
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig: any = {
-  name: "Moneta Kit",
+  name: "Anyhive Kit",
   description: "Open source payments and usage-based billing platform",
   cta: "Get Started",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   keywords: [
-    "Moneta Kit",
+    "Anyhive Kit",
     "Payments",
     "Subscriptions",
     "Usage-based Billing",
@@ -24,10 +24,10 @@ export const siteConfig: any = {
     "PSP Router",
   ],
   links: {
-    email: "support@monetakit.com",
-    twitter: "https://x.com/monetakit",
+    email: "support@anyhivekit.com",
+    twitter: "https://x.com/anyhivekit",
     // discord: "https://discord.gg/aiagentsdk",
-    github: "https://github.com/monetakit",
+    github: "https://github.com/anyhivekit",
     // instagram: "https://instagram.com/aiagentsdk",
   },
   hero: {
@@ -65,7 +65,7 @@ export const siteConfig: any = {
     {
       name: "Adapter ecosystem",
       description:
-        "Official `@moneta/psp-*` plus community adapters with a Technology Compatibility Kit (TCK).",
+        "Official `@anyhive/psp-*` plus community adapters with a Technology Compatibility Kit (TCK).",
       icon: <UsersIcon className="h-6 w-6" />,
     },
     {
@@ -137,7 +137,7 @@ export const siteConfig: any = {
       { text: "Contact", url: "#" },
     ],
     bottomText: "All rights reserved.",
-    brandText: "MONETA KIT",
+    brandText: "ANYHIVE KIT",
   },
 
   testimonials: [

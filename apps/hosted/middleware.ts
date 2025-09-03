@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 // Demo domain map and canonical domain
-const CANONICAL_DOMAIN = process.env.NEXT_PUBLIC_HOSTED_DOMAIN || 'monetapay.com'
+const CANONICAL_DOMAIN = process.env.NEXT_PUBLIC_HOSTED_DOMAIN || 'anyhivepay.com'
 const DOMAIN_MAP: Record<string, { tenantId: string }> = {
   'localhost:3100': { tenantId: 'tn_demo_local' },
   [CANONICAL_DOMAIN]: { tenantId: 'tn_demo_local' },
@@ -20,7 +20,7 @@ export function middleware(request: NextRequest) {
   }
   const response = NextResponse.next()
   if (match) {
-    response.headers.set('x-moneta-tenant', match.tenantId)
+    response.headers.set('x-anyhive-tenant', match.tenantId)
   }
   return response
 }

@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center p-6">
       <div className="text-center space-y-3">
-        <h1 className="text-2xl font-semibold">Moneta Hosted</h1>
+        <h1 className="text-2xl font-semibold">Anyhive Hosted</h1>
         <p className="text-gray-500">This service powers hosted checkout pages and customer portals.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto text-left">
           <div className="border rounded-md p-3">

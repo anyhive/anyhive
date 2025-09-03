@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { cn } from "@moneta-kit/ui/lib/utils"
+import { cn } from "@anyhive-kit/ui/lib/utils"
 
 function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (

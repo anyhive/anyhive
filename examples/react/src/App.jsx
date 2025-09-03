@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { usePricingTable } from '@moneta-kit/react'
-// import { useMoneta } from '@moneta-kit/core'
+import { usePricingTable } from '@anyhive-kit/react'
+// import { useAnyhive } from '@anyhive-kit/core'
 import { useBillingDecision, SCENARIOS } from './hooks/useBillingDecision'
 import UpgradeModal from './components/UpgradeModal'
 import UsageBar from './components/UsageBar'
@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <h1 className="text-3xl font-semibold tracking-tight text-slate-900">Moneta Kit</h1>
+        <h1 className="text-3xl font-semibold tracking-tight text-slate-900">Anyhive Kit</h1>
 
         <section className="mt-8">
           <h2 className="text-lg font-medium text-slate-900">Pricing Table (Mock)</h2>

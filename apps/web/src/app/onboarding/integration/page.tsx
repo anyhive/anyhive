@@ -1,9 +1,9 @@
 "use client"
 
-import { Button } from "@moneta-kit/ui/components/button"
-import { Input } from "@moneta-kit/ui/components/input"
-import { Label } from "@moneta-kit/ui/components/label"
-import { Checkbox } from "@moneta-kit/ui/components/checkbox"
+import { Button } from "@anyhive-kit/ui/components/button"
+import { Input } from "@anyhive-kit/ui/components/input"
+import { Label } from "@anyhive-kit/ui/components/label"
+import { Checkbox } from "@anyhive-kit/ui/components/checkbox"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useOnboarding } from "@/contexts/onboarding-context"
 import { useRouter } from "next/navigation"
@@ -59,7 +59,7 @@ export default function IntegrationPage() {
     <StepLayout
       stepNumber={5}
       stepTitle="Integration Setup"
-      stepDescription="How do you plan to integrate with Moneta?"
+      stepDescription="How do you plan to integrate with Anyhive?"
     >
       <div className="space-y-6">
         <div className="space-y-4">
@@ -101,7 +101,7 @@ export default function IntegrationPage() {
                 onCheckedChange={(checked) => handleCheckboxChange('apiUsage', checked as boolean)}
               />
               <div className="flex-1">
-                <Label htmlFor="apiUsage" className="text-sm font-medium">I will use Moneta's REST API</Label>
+                <Label htmlFor="apiUsage" className="text-sm font-medium">I will use Anyhive's REST API</Label>
                 <p className="text-xs text-gray-500">Direct API integration for custom applications</p>
               </div>
             </div>

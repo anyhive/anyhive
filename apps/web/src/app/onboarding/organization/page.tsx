@@ -1,8 +1,8 @@
 "use client"
 
-import { Button } from "@moneta-kit/ui/components/button"
-import { Input } from "@moneta-kit/ui/components/input"
-import { Label } from "@moneta-kit/ui/components/label"
+import { Button } from "@anyhive-kit/ui/components/button"
+import { Input } from "@anyhive-kit/ui/components/input"
+import { Label } from "@anyhive-kit/ui/components/label"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useOnboarding } from "@/contexts/onboarding-context"
 import { useRouter } from "next/navigation"

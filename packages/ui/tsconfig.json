@@ -1,9 +1,9 @@
 {
-  "extends": "@moneta-kit/typescript-config/react-library.json",
+  "extends": "@anyhive-kit/typescript-config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@moneta-kit/ui/*": ["./src/*"]
+      "@anyhive-kit/ui/*": ["./src/*"]
     }
   },
   "include": ["."],

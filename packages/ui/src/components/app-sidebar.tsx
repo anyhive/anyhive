@@ -9,22 +9,22 @@ import {
   SquareTerminal,
 } from "lucide-react"
 
-import { NavMain } from "@moneta-kit/ui/components/nav-main"
-import { NavUser } from "@moneta-kit/ui/components/nav-user"
-import { SiteSwitcher } from "@moneta-kit/ui/components/site-switcher"
+import { NavMain } from "@anyhive-kit/ui/components/nav-main"
+import { NavUser } from "@anyhive-kit/ui/components/nav-user"
+import { SiteSwitcher } from "@anyhive-kit/ui/components/site-switcher"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@moneta-kit/ui/components/sidebar"
+} from "@anyhive-kit/ui/components/sidebar"
 
 // This is sample data.
 const data = {
   user: {
     name: "Lawrence",
-    email: "lawrence@monetakit.com",
+    email: "lawrence@anyhivekit.com",
     avatar: "L",
   },
   sites: [

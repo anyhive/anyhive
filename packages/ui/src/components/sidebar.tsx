@@ -5,25 +5,25 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, VariantProps } from "class-variance-authority"
 import { PanelLeftIcon } from "lucide-react"
 
-import { useIsMobile } from "@moneta-kit/ui/hooks/use-mobile"
-import { cn } from "@moneta-kit/ui/lib/utils"
-import { Button } from "@moneta-kit/ui/components/button"
-import { Input } from "@moneta-kit/ui/components/input"
-import { Separator } from "@moneta-kit/ui/components/separator"
+import { useIsMobile } from "@anyhive-kit/ui/hooks/use-mobile"
+import { cn } from "@anyhive-kit/ui/lib/utils"
+import { Button } from "@anyhive-kit/ui/components/button"
+import { Input } from "@anyhive-kit/ui/components/input"
+import { Separator } from "@anyhive-kit/ui/components/separator"
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "@moneta-kit/ui/components/sheet"
-import { Skeleton } from "@moneta-kit/ui/components/skeleton"
+} from "@anyhive-kit/ui/components/sheet"
+import { Skeleton } from "@anyhive-kit/ui/components/skeleton"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@moneta-kit/ui/components/tooltip"
+} from "@anyhive-kit/ui/components/tooltip"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7

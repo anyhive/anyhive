@@ -1,8 +1,8 @@
-# Moneta Kit
+# Anyhive Kit
 
 Build your product. We handle payments, billing, and compliance.
 
-Moneta Kit is an open-source, developer-first Merchant of Record (MoR) and billing layer. With Moneta Kit, you can build your own checkout and customer portals with hosted UI or embeddable components within minutes.
+Anyhive Kit is an open-source, developer-first Merchant of Record (MoR) and billing layer. With Anyhive Kit, you can build your own checkout and customer portals with hosted UI or embeddable components within minutes.
 
 > **The open-source Merchant of Record for developers.**
 > Open-source billing — pricing, metering, and compliance made simple.
@@ -14,9 +14,9 @@ Moneta Kit is an open-source, developer-first Merchant of Record (MoR) and billi
 
 Scales your startup from Hello World to IPO — without getting stuck in someone else’s billing walled garden.
 
-## What is Moneta Kit?
+## What is Anyhive Kit?
 
-Moneta Kit is open-source **Merchant of Record (MoR)** with payments, subscriptions, and compliance.
+Anyhive Kit is open-source **Merchant of Record (MoR)** with payments, subscriptions, and compliance.
 
 It includes:
 
@@ -35,7 +35,7 @@ Near-term
 - [ ] Metered billing for tools/AI: quotas, rate limits, overage prompts, upgrade flows.
 - [ ] Default modern UI themes (Minimal, Neobrutal) with data-attributes/class hooks for customization.
 - [ ] Frictionless developer onboarding: polished Next.js/React Router examples, quickstart CLI.
-- [ ] By default, Moneta Kit will use Stripe as the default PSP since it is the most widely used and supported PSP.
+- [ ] By default, Anyhive Kit will use Stripe as the default PSP since it is the most widely used and supported PSP.
 
 Mid-term
 
@@ -54,7 +54,7 @@ Long-term
 
 We believe founders, startups, and businesses should focus on product, not payments and tax compliance.
 
-Moneta Kit will become the global abstraction layer for payments and compliance — PSP‑agnostic, tax‑aware, and programmable — so teams can ship, scale, and switch providers without fear. Think **Stripe-like developer experience**, but available for every country’s PSP and tax system.
+Anyhive Kit will become the global abstraction layer for payments and compliance — PSP‑agnostic, tax‑aware, and programmable — so teams can ship, scale, and switch providers without fear. Think **Stripe-like developer experience**, but available for every country’s PSP and tax system.
 
 ## ✨ Features
 
@@ -72,19 +72,19 @@ Moneta Kit will become the global abstraction layer for payments and compliance 
 
 ## Core Concepts
 
-Moneta Kit allows you to:
+Anyhive Kit allows you to:
 
 - Manage and display checkout and customer portals with hosted UI or embeddable components.
 - No-code upgrades, downgrades, and cancellation.
 - Deal with cross-border payments and tax compliance in one place.
-- Use Moneta Kit to build your own checkout and customer portals.
+- Use Anyhive Kit to build your own checkout and customer portals.
 
 ## 🏗 Example
 
 ```ts
-import { useMoneta } from "@moneta-kit/core"
+import { useAnyhive } from "@anyhive-kit/core"
 
-const { charge } = useMoneta()
+const { charge } = useAnyhive()
 
 // One-time payment (e.g. LINE Pay in Thailand)
 await charge({
@@ -96,9 +96,9 @@ await charge({
 ```
 
 ```ts
-import { useMoneta } from "@moneta-kit/core"
+import { useAnyhive } from "@anyhive-kit/core"
 
-const { createCustomer } = useMoneta()
+const { createCustomer } = useAnyhive()
 
 // Create a customer
 const customer = await createCustomer({
@@ -107,7 +107,7 @@ const customer = await createCustomer({
 })
 
 
-const { createSubscription } = useMoneta()
+const { createSubscription } = useAnyhive()
 
 // Create a subscription
 const subscription = await createSubscription({
@@ -116,7 +116,7 @@ const subscription = await createSubscription({
 })
 ```
 
-### Content Paywall (Next.js, RSC)
+### Content Paywall (Nex    t.js, RSC)
 
 Minimal integration with server-first gating. Two styles are supported: a one-liner helper and a manual pattern.
 
@@ -125,9 +125,9 @@ Minimal integration with server-first gating. Two styles are supported: a one-li
 ```tsx
 // app/page.tsx
 import { prisma } from "@/lib/prisma";
-import { paywall } from "@moneta-kit/react/server";
-import "@moneta-kit/react/styles.css"; // optional defaults; or import a theme:
-// import "@moneta-kit/react/themes/minimal.css";
+import { paywall } from "@anyhive-kit/react/server";
+import "@anyhive-kit/react/styles.css"; // optional defaults; or import a theme:
+// import "@anyhive-kit/react/themes/minimal.css";
 
 export default async function Page() {
   const { render } = await paywall(() => prisma.posts.findMany());
@@ -155,11 +155,11 @@ export default async function Page() {
 ```tsx
 // app/page.tsx
 import { prisma } from "@/lib/prisma";
-import { moneta } from "moneta-kit"; // server facade
-import { PaywallOverlay, EmptyPlaceholder, AccessBanner } from "@moneta-kit/react/client";
+import { anyhive } from "anyhive-kit"; // server facade
+import { PaywallOverlay, EmptyPlaceholder, AccessBanner } from "@anyhive-kit/react/client";
 
 export default async function Page() {
-  const { fetchIfAllowed, status } = moneta.authorize();
+  const { fetchIfAllowed, status } = anyhive.authorize();
   const { allowed, data } = await fetchIfAllowed(() => prisma.posts.findMany());
 
   return (
@@ -212,7 +212,7 @@ export default async function Page() {
 
 ## Self-hosting
 
-Moneta Kit is open-source and self-hostable. Our goal is to make it easy to self-host and you won't be locked-in, and to make it easy to integrate with your own payment service provider.
+Anyhive Kit is open-source and self-hostable. Our goal is to make it easy to self-host and you won't be locked-in, and to make it easy to integrate with your own payment service provider.
 
 For the self-hosted version, we will make it easy to deploy to Cloudflare Workers or Vercel.
 

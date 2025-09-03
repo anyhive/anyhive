@@ -28,21 +28,21 @@ export declare function UsageMeter(props: UsageMeterProps): React.ReactNode
 export interface UsageGateProps { allowed: boolean; children?: React.ReactNode; fallback?: React.ReactNode }
 export declare function UsageGate(props: UsageGateProps): React.ReactNode
 
-export declare function useMoneta(options?: { publishableKey?: string }): any
+export declare function useAnyhive(options?: { publishableKey?: string }): any
 
-export declare function MonetaProvider(props: { publishableKey?: string; theme?: string; children?: React.ReactNode }): React.ReactNode
-export declare function useMonetaContext(): { publishableKey?: string }
-export declare function MonetaGate(props: { children?: React.ReactNode }): React.ReactNode
-export declare function MonetaStatus(): React.ReactNode
+export declare function AnyhiveProvider(props: { publishableKey?: string; theme?: string; children?: React.ReactNode }): React.ReactNode
+export declare function useAnyhiveContext(): { publishableKey?: string }
+export declare function AnyhiveGate(props: { children?: React.ReactNode }): React.ReactNode
+export declare function AnyhiveStatus(): React.ReactNode
 export declare function PaywallOverlay(props: { children?: React.ReactNode; href?: string; label?: string; className?: string; backdropClassName?: string; contentClassName?: string; buttonClassName?: string }): React.ReactNode
 export declare function AccessBanner(props: { status?: any; expiresAt?: string; className?: string }): React.ReactNode
 export declare function EmptyPlaceholder(props: { title?: string; description?: string; className?: string }): React.ReactNode
 
-export declare const moneta: {
-  Provider: typeof MonetaProvider,
+export declare const anyhive: {
+  Provider: typeof AnyhiveProvider,
   PaywallOverlay: typeof PaywallOverlay,
   UpgradeButton: typeof UpgradeButton,
-  useMoneta: typeof useMoneta,
+  useAnyhive: typeof useAnyhive,
 }
 
 

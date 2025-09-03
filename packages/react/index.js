@@ -124,7 +124,7 @@ export function useAccessDecision(options = {}) {
 }
 
 // Public, ergonomic client hook name
-export function useMonetaKit(options = {}) {
+export function useAnyhiveKit(options = {}) {
   const result = useAccessDecision(options)
   async function gate(loadFn) {
     if (result.isAllowed) {
@@ -147,7 +147,7 @@ export function useMonetaKit(options = {}) {
   }
 }
 
-export { getMoneta as getMonetaKit } from './moneta-server.jsx'
+export { getAnyhive as getAnyhiveKit } from './anyhive-server.jsx'
 
 // Shared access status constants (server/client-agnostic)
 export const ACCESS_STATUS = Object.freeze({

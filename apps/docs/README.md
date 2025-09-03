@@ -1,6 +1,6 @@
-# Moneta Kit Docs
+# Anyhive Kit Docs
 
-This is the documentation for Moneta Kit.
+This is the documentation for Anyhive Kit.
 
 ## Getting Started
 

@@ -7,18 +7,18 @@ function normalizeAccess(access) {
 }
 
 /**
- * getMoneta
+ * getAnyhive
  * Server-side helper to derive access decision from request context.
  * Accepts either `access` or a `searchParams` object.
  */
-export function getMoneta(options = {}) {
+export function getAnyhive(options = {}) {
   const { access, searchParams, defaultAllowed = false } = options
 
   const valueFromParams = searchParams ? (searchParams.access ?? undefined) : undefined
   const normalized = normalizeAccess(access ?? valueFromParams)
 
   // Allow forcing demo status via env
-  const forced = (process.env.MONETA_FORCE_STATUS || process.env.NEXT_PUBLIC_MONETA_FORCE_STATUS || '').toString()
+  const forced = (process.env.ANYHIVE_FORCE_STATUS || process.env.NEXT_PUBLIC_ANYHIVE_FORCE_STATUS || '').toString()
   const forcedLower = forced.toLowerCase()
 
   const statusFromForced = (() => {
@@ -59,11 +59,11 @@ export function getMoneta(options = {}) {
   return { allowed, status, reason, checkStatus }
 }
 
-export default { getMoneta }
+export default { getAnyhive }
 
 // Server-safe alias matching the client API name
-export function useMonetaKit(options = {}) {
-  const result = getMoneta(options)
+export function useAnyhiveKit(options = {}) {
+  const result = getAnyhive(options)
   async function gate(loadFn) {
     if (result.allowed) {
       const data = await loadFn()
@@ -76,11 +76,11 @@ export function useMonetaKit(options = {}) {
 }
 
 // Keep named export for parity
-export { getMoneta as getMonetaKit }
+export { getAnyhive as getAnyhiveKit }
 
 // Non-hook server API name (preferred for server/RSC)
 export function authorize(options = {}) {
-  return useMonetaKit(options)
+  return useAnyhiveKit(options)
 }
 
 // Server Component: single-tag gating with inline loader and fallback
@@ -169,14 +169,14 @@ export async function Protected(props) {
 export { Protected as Paywalled }
 
 // Helper: opinionated paywall with conventional UI, preserving fetchIfAllowed style
-import { PaywallOverlay, AccessBanner, EmptyPlaceholder } from './moneta-client.jsx'
+import { PaywallOverlay, AccessBanner, EmptyPlaceholder } from './anyhive-client.jsx'
 
 function DefaultListPlaceholder() {
   return (
-    <ul className="moneta:space-y-3">
-      <li className="moneta:rounded moneta:border moneta:p-3"><div className="moneta:font-semibold">Post title example</div><div className="moneta:text-sm moneta:text-gray-600 moneta:dark:text-gray-300">Post preview content…</div></li>
-      <li className="moneta:rounded moneta:border moneta:p-3"><div className="moneta:font-semibold">Post title example</div><div className="moneta:text-sm moneta:text-gray-600 moneta:dark:text-gray-300">Post preview content…</div></li>
-      <li className="moneta:rounded moneta:border moneta:p-3"><div className="moneta:font-semibold">Post title example</div><div className="moneta:text-sm moneta:text-gray-600 moneta:dark:text-gray-300">Post preview content…</div></li>
+    <ul className="anyhive:space-y-3">
+      <li className="anyhive:rounded anyhive:border anyhive:p-3"><div className="anyhive:font-semibold">Post title example</div><div className="anyhive:text-sm anyhive:text-gray-600 anyhive:dark:text-gray-300">Post preview content…</div></li>
+      <li className="anyhive:rounded anyhive:border anyhive:p-3"><div className="anyhive:font-semibold">Post title example</div><div className="anyhive:text-sm anyhive:text-gray-600 anyhive:dark:text-gray-300">Post preview content…</div></li>
+      <li className="anyhive:rounded anyhive:border anyhive:p-3"><div className="anyhive:font-semibold">Post title example</div><div className="anyhive:text-sm anyhive:text-gray-600 anyhive:dark:text-gray-300">Post preview content…</div></li>
     </ul>
   )
 }

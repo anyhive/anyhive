@@ -13,7 +13,7 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@moneta-kit/ui/components/avatar"
+} from "@anyhive-kit/ui/components/avatar"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,13 +22,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@moneta-kit/ui/components/dropdown-menu"
+} from "@anyhive-kit/ui/components/dropdown-menu"
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@moneta-kit/ui/components/sidebar"
+} from "@anyhive-kit/ui/components/sidebar"
 
 export function NavUser({
   user,

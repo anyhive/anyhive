@@ -8,7 +8,7 @@ importers:
 
   .:
     devDependencies:
-      '@moneta-kit/typescript-config':
+      '@anyhive-kit/typescript-config':
         specifier: workspace:*
         version: link:packages/typescript-config
       prettier:
@@ -84,7 +84,7 @@ importers:
 
   apps/hosted:
     dependencies:
-      '@moneta-kit/ui':
+      '@anyhive-kit/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       next:
@@ -97,10 +97,10 @@ importers:
         specifier: ^19.1.0
         version: 19.1.1(react@19.1.1)
     devDependencies:
-      '@moneta-kit/eslint-config':
+      '@anyhive-kit/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@moneta-kit/typescript-config':
+      '@anyhive-kit/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -121,7 +121,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@moneta-kit/ui':
+      '@anyhive-kit/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       better-auth:
@@ -149,10 +149,10 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1
     devDependencies:
-      '@moneta-kit/eslint-config':
+      '@anyhive-kit/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@moneta-kit/typescript-config':
+      '@anyhive-kit/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -264,10 +264,10 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.1.1(@types/react@19.1.0))(@types/react@19.1.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
     devDependencies:
-      '@moneta-kit/eslint-config':
+      '@anyhive-kit/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@moneta-kit/typescript-config':
+      '@anyhive-kit/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@tailwindcss/typography':
@@ -294,12 +294,12 @@ importers:
 
   examples/nextjs-paywalled-content:
     dependencies:
-      '@moneta-kit/react':
+      '@anyhive-kit/react':
         specifier: workspace:*
         version: link:../../packages/react
-      moneta-kit:
+      anyhive-kit:
         specifier: workspace:*
-        version: link:../../packages/moneta-kit
+        version: link:../../packages/anyhive-kit
       next:
         specifier: 15.5.2
         version: 15.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -331,12 +331,12 @@ importers:
 
   examples/nextjs-usage-meter:
     dependencies:
-      '@moneta-kit/react':
+      '@anyhive-kit/react':
         specifier: workspace:*
         version: link:../../packages/react
-      moneta-kit:
+      anyhive-kit:
         specifier: workspace:*
-        version: link:../../packages/moneta-kit
+        version: link:../../packages/anyhive-kit
       next:
         specifier: 15.5.2
         version: 15.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -368,7 +368,7 @@ importers:
 
   examples/react:
     dependencies:
-      '@moneta-kit/react':
+      '@anyhive-kit/react':
         specifier: workspace:*
         version: link:../../packages/react
       react:
@@ -416,7 +416,7 @@ importers:
 
   packages/cli: {}
 
-  packages/create-moneta: {}
+  packages/create-anyhive: {}
 
   packages/eslint-config:
     dependencies:
@@ -461,9 +461,9 @@ importers:
         specifier: ^8.39.0
         version: 8.41.0(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2)
 
-  packages/moneta-kit:
+  packages/anyhive-kit:
     dependencies:
-      '@moneta-kit/react':
+      '@anyhive-kit/react':
         specifier: workspace:*
         version: link:../react
 
@@ -471,7 +471,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@moneta-kit/ui':
+      '@anyhive-kit/ui':
         specifier: workspace:*
         version: link:../ui
       react:
@@ -544,10 +544,10 @@ importers:
         specifier: ^3.25.76
         version: 3.25.76
     devDependencies:
-      '@moneta-kit/eslint-config':
+      '@anyhive-kit/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@moneta-kit/typescript-config':
+      '@anyhive-kit/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@tailwindcss/postcss':

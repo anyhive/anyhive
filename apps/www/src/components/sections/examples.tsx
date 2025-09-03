@@ -14,11 +14,11 @@ const featureOptions: FeatureOption[] = [
     id: 1,
     title: "Bootstrap on the server",
     description: "Register PSP adapters and set up smart routing with fallbacks.",
-    code: `import { createMoneta } from "moneta-server";
-import { stripeAdapter } from "@moneta/psp-stripe";
-import { payuniAdapter } from "@moneta/psp-payuni";
+    code: `import { createAnyhive } from "anyhive-server";
+import { stripeAdapter } from "@anyhive/psp-stripe";
+import { payuniAdapter } from "@anyhive/psp-payuni";
 
-export const moneta = createMoneta({
+export const anyhive = createAnyhive({
   psp: {
     providers: {
       stripe: stripeAdapter({ secretKey: process.env.STRIPE_SECRET_KEY! }),
@@ -39,16 +39,16 @@ export const moneta = createMoneta({
   {
     id: 2,
     title: "Use the SDK on the frontend",
-    description: "Call checkout, track usage, or check quotas via useMoneta().",
-    code: `import { useMoneta } from "moneta-kit";
+    description: "Call checkout, track usage, or check quotas via useAnyhive().",
+    code: `import { useAnyhive } from "anyhive-kit";
 
 export function CheckoutButton() {
-  const moneta = useMoneta();
+  const anyhive = useAnyhive();
 
   return (
     <button
       onClick={async () => {
-        const { checkoutUrl } = await moneta.checkout({
+        const { checkoutUrl } = await anyhive.checkout({
           productId: "pro",
           priceId: "pro_monthly",
           customerId: "cus_123",
@@ -66,12 +66,12 @@ export function CheckoutButton() {
     title: "Verify webhooks and handle events",
     description: "Receive normalized events and reconcile payments reliably.",
     code: `import express from "express";
-import { moneta } from "./moneta";
+import { anyhive } from "./anyhive";
 
 const app = express();
 
 app.post("/v1/webhooks/:psp", express.raw({ type: "application/json" }), (req, res) => {
-  const event = moneta.verifyWebhook(req.params.psp, req.headers, req.body);
+  const event = anyhive.verifyWebhook(req.params.psp, req.headers, req.body);
   switch (event.type) {
     case "payment_succeeded":
       // grant entitlements

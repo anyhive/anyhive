@@ -24,7 +24,7 @@ function HeroPill() {
         🛠️ New
       </div>
       <p className="text-xs font-medium text-primary sm:text-sm">
-        Introducing Moneta Kit
+        Introducing Anyhive Kit
       </p>
       <svg
         width="12"

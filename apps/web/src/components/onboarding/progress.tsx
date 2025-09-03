@@ -69,7 +69,7 @@ export function OnboardingProgress({ steps }: OnboardingProgressProps) {
           Getting Started
         </div>
         <h2 className="text-3xl font-bold text-white">
-          Welcome to Moneta
+          Welcome to Anyhive
         </h2>
         <p className="text-gray-500 text-sm">
           Let's set up your payment infrastructure and get you started

@@ -4,7 +4,7 @@ export async function GET() {
   return NextResponse.json({
     user: {
       id: "user_demo_123",
-      email: "demo@moneta.app",
+      email: "demo@anyhive.app",
       name: "Demo User",
     },
     workspaces: [

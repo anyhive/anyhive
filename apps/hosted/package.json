@@ -1,5 +1,5 @@
 {
-  "name": "@moneta-kit/hosted-pages",
+  "name": "@anyhive-kit/hosted-pages",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -14,11 +14,11 @@
     "next": "^15.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "@moneta-kit/ui": "workspace:*"
+    "@anyhive-kit/ui": "workspace:*"
   },
   "devDependencies": {
-    "@moneta-kit/eslint-config": "workspace:*",
-    "@moneta-kit/typescript-config": "workspace:*",
+    "@anyhive-kit/eslint-config": "workspace:*",
+    "@anyhive-kit/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",

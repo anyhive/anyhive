@@ -11,10 +11,10 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@moneta-kit/ui/components",
-    "utils": "@moneta-kit/ui/lib/utils",
-    "hooks": "@moneta-kit/ui/hooks",
-    "lib": "@moneta-kit/ui/lib",
-    "ui": "@moneta-kit/ui/components"
+    "components": "@anyhive-kit/ui/components",
+    "utils": "@anyhive-kit/ui/lib/utils",
+    "hooks": "@anyhive-kit/ui/hooks",
+    "lib": "@anyhive-kit/ui/lib",
+    "ui": "@anyhive-kit/ui/components"
   }
 }

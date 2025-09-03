@@ -1,5 +1,5 @@
 {
-  "extends": "@moneta-kit/typescript-config/nextjs.json",
+  "extends": "@anyhive-kit/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {

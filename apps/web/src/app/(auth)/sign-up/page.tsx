@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@moneta-kit/ui/components/button";
+import { Button } from "@anyhive-kit/ui/components/button";
 import {
 	Card,
 	CardContent,
@@ -8,9 +8,9 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@moneta-kit/ui/components/card";
-import { Input } from "@moneta-kit/ui/components/input";
-import { Label } from "@moneta-kit/ui/components/label";
+} from "@anyhive-kit/ui/components/card";
+import { Input } from "@anyhive-kit/ui/components/input";
+import { Label } from "@anyhive-kit/ui/components/label";
 import { useState } from "react";
 import Image from "next/image";
 import { Loader2, X } from "lucide-react";
@@ -82,7 +82,7 @@ export default function SignUp() {
 						<Input
 							id="email"
 							type="email"
-							placeholder="lawrence@monetakit.com"
+							placeholder="lawrence@anyhivekit.com"
 							required
 							onChange={(e) => {
 								setEmail(e.target.value);

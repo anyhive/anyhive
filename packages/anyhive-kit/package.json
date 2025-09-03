@@ -1,7 +1,7 @@
 {
-  "name": "moneta-kit",
+  "name": "anyhive-kit",
   "version": "0.0.1",
-  "description": "Unified Moneta facade for server/client usage.",
+  "description": "Unified Anyhive facade for server/client usage.",
   "license": "ISC",
   "author": "",
   "type": "module",
@@ -18,6 +18,6 @@
   },
   "main": "server.js",
   "dependencies": {
-    "@moneta-kit/react": "workspace:*"
+    "@anyhive-kit/react": "workspace:*"
   }
 }

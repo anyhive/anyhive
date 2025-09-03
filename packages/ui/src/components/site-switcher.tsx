@@ -11,13 +11,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@moneta-kit/ui/components/dropdown-menu"
+} from "@anyhive-kit/ui/components/dropdown-menu"
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@moneta-kit/ui/components/sidebar"
+} from "@anyhive-kit/ui/components/sidebar"
 
 export function SiteSwitcher({
   sites,

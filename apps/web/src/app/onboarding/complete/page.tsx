@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@moneta-kit/ui/components/button"
+import { Button } from "@anyhive-kit/ui/components/button"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useRouter } from "next/navigation"
 
@@ -14,7 +14,7 @@ export default function CompletePage() {
 
   const handleDocs = () => {
     // Open documentation in new tab
-    window.open('https://docs.moneta.com', '_blank')
+    window.open('https://docs.anyhive.com', '_blank')
   }
 
   return (
@@ -35,7 +35,7 @@ export default function CompletePage() {
             Application Submitted Successfully!
           </h2>
           <p className="text-lg text-gray-600 max-w-md">
-            Thank you for choosing Moneta. Your payment infrastructure setup is now in progress.
+            Thank you for choosing Anyhive. Your payment infrastructure setup is now in progress.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export default function CompletePage() {
               <div>
                 <h4 className="font-medium text-gray-900">Go Live</h4>
                 <p className="text-sm text-gray-600 mt-1">
-                  Start accepting payments with your fully configured Moneta payment infrastructure.
+                  Start accepting payments with your fully configured Anyhive payment infrastructure.
                 </p>
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function CompletePage() {
               <h4 className="text-sm font-medium text-blue-900">Need Help?</h4>
               <p className="text-sm text-blue-700 mt-1">
                 Our support team is available 24/7 at{' '}
-                <a href="mailto:support@moneta.com" className="underline">support@moneta.com</a>
+                <a href="mailto:support@anyhive.com" className="underline">support@anyhive.com</a>
                 {' '}or via our documentation portal.
               </p>
             </div>

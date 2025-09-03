@@ -1,10 +1,10 @@
 "use client"
 
-import { Button } from "@moneta-kit/ui/components/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@moneta-kit/ui/components/card";
-import { Input } from "@moneta-kit/ui/components/input";
-import { Label } from "@moneta-kit/ui/components/label";
-import { Checkbox } from "@moneta-kit/ui/components/checkbox";
+import { Button } from "@anyhive-kit/ui/components/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@anyhive-kit/ui/components/card";
+import { Input } from "@anyhive-kit/ui/components/input";
+import { Label } from "@anyhive-kit/ui/components/label";
+import { Checkbox } from "@anyhive-kit/ui/components/checkbox";
 import { useState } from "react";
 import { Loader2, Key } from "lucide-react";
 import { signIn } from "@/lib/auth-client";
@@ -32,7 +32,7 @@ export default function SignIn() {
               <Input
                 id="email"
                 type="email"
-                placeholder="lawrence@monetakit.com"
+                placeholder="lawrence@anyhivekit.com"
                 required
                 onChange={(e) => {
                   setEmail(e.target.value);

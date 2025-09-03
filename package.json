@@ -1,5 +1,5 @@
 {
-  "name": "moneta-kit",
+  "name": "anyhive-kit",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "@moneta-kit/typescript-config": "workspace:*",
+    "@anyhive-kit/typescript-config": "workspace:*",
     "prettier": "^3.5.3",
     "turbo": "^2.5.6",
     "typescript": "5.8.2"

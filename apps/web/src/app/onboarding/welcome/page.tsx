@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@moneta-kit/ui/components/button"
+import { Button } from "@anyhive-kit/ui/components/button"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useRouter } from "next/navigation"
 
@@ -19,7 +19,7 @@ export default function WelcomePage() {
         </div>
 
         <h2 className="text-2xl font-bold text-gray-900">
-          Welcome to Moneta Payment Infrastructure
+          Welcome to Anyhive Payment Infrastructure
         </h2>
 
         <div className="text-gray-600 leading-relaxed">

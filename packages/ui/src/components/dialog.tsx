@@ -4,7 +4,7 @@ import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { XIcon } from "lucide-react"
 
-import { cn } from "@moneta-kit/ui/lib/utils"
+import { cn } from "@anyhive-kit/ui/lib/utils"
 
 function Dialog({
   ...props
@@ -38,7 +38,7 @@ function DialogOverlay({
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
       className={cn(
-        "moneta:fixed moneta:inset-0 moneta:z-50 moneta:bg-black/50 moneta:data-[state=open]:animate-in moneta:data-[state=closed]:animate-out moneta:data-[state=closed]:fade-out-0 moneta:data-[state=open]:fade-in-0",
+        "anyhive:fixed anyhive:inset-0 anyhive:z-50 anyhive:bg-black/50 anyhive:data-[state=open]:animate-in anyhive:data-[state=closed]:animate-out anyhive:data-[state=closed]:fade-out-0 anyhive:data-[state=open]:fade-in-0",
         className
       )}
       {...props}
@@ -60,7 +60,7 @@ function DialogContent({
       <DialogPrimitive.Content
         data-slot="dialog-content"
         className={cn(
-          "moneta:bg-white moneta:dark:bg-slate-900 moneta:fixed moneta:top-[50%] moneta:left-[50%] moneta:z-50 moneta:grid moneta:w-full moneta:max-w-[calc(100%-2rem)] moneta:translate-x-[-50%] moneta:translate-y-[-50%] moneta:gap-4 moneta:rounded-lg moneta:border moneta:p-6 moneta:shadow-lg moneta:duration-200 moneta:sm:max-w-lg moneta:data-[state=open]:animate-in moneta:data-[state=closed]:animate-out moneta:data-[state=closed]:fade-out-0 moneta:data-[state=open]:fade-in-0 moneta:data-[state=closed]:zoom-out-95 moneta:data-[state=open]:zoom-in-95",
+          "anyhive:bg-white anyhive:dark:bg-slate-900 anyhive:fixed anyhive:top-[50%] anyhive:left-[50%] anyhive:z-50 anyhive:grid anyhive:w-full anyhive:max-w-[calc(100%-2rem)] anyhive:translate-x-[-50%] anyhive:translate-y-[-50%] anyhive:gap-4 anyhive:rounded-lg anyhive:border anyhive:p-6 anyhive:shadow-lg anyhive:duration-200 anyhive:sm:max-w-lg anyhive:data-[state=open]:animate-in anyhive:data-[state=closed]:animate-out anyhive:data-[state=closed]:fade-out-0 anyhive:data-[state=open]:fade-in-0 anyhive:data-[state=closed]:zoom-out-95 anyhive:data-[state=open]:zoom-in-95",
           className
         )}
         {...props}
@@ -69,10 +69,10 @@ function DialogContent({
         {showCloseButton && (
           <DialogPrimitive.Close
             data-slot="dialog-close"
-            className="moneta:ring-offset-background moneta:focus:ring-ring moneta:data-[state=open]:bg-accent moneta:data-[state=open]:text-muted-foreground moneta:absolute moneta:top-4 moneta:right-4 moneta:rounded-xs moneta:opacity-70 moneta:transition-opacity moneta:hover:opacity-100 moneta:focus:ring-2 moneta:focus:ring-offset-2 moneta:focus:outline-hidden moneta:disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+            className="anyhive:ring-offset-background anyhive:focus:ring-ring anyhive:data-[state=open]:bg-accent anyhive:data-[state=open]:text-muted-foreground anyhive:absolute anyhive:top-4 anyhive:right-4 anyhive:rounded-xs anyhive:opacity-70 anyhive:transition-opacity anyhive:hover:opacity-100 anyhive:focus:ring-2 anyhive:focus:ring-offset-2 anyhive:focus:outline-hidden anyhive:disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
           >
             <XIcon />
-            <span className="moneta:sr-only">Close</span>
+            <span className="anyhive:sr-only">Close</span>
           </DialogPrimitive.Close>
         )}
       </DialogPrimitive.Content>
@@ -84,7 +84,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="dialog-header"
-      className={cn("moneta:flex moneta:flex-col moneta:gap-2 moneta:text-center moneta:sm:text-left", className)}
+      className={cn("anyhive:flex anyhive:flex-col anyhive:gap-2 anyhive:text-center anyhive:sm:text-left", className)}
       {...props}
     />
   )
@@ -95,7 +95,7 @@ function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="dialog-footer"
       className={cn(
-        "moneta:flex moneta:flex-col-reverse moneta:gap-2 moneta:sm:flex-row moneta:sm:justify-end",
+        "anyhive:flex anyhive:flex-col-reverse anyhive:gap-2 anyhive:sm:flex-row anyhive:sm:justify-end",
         className
       )}
       {...props}
@@ -110,7 +110,7 @@ function DialogTitle({
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
-      className={cn("moneta:text-lg moneta:leading-none moneta:font-semibold", className)}
+      className={cn("anyhive:text-lg anyhive:leading-none anyhive:font-semibold", className)}
       {...props}
     />
   )
@@ -123,7 +123,7 @@ function DialogDescription({
   return (
     <DialogPrimitive.Description
       data-slot="dialog-description"
-      className={cn("moneta:text-muted-foreground moneta:text-sm", className)}
+      className={cn("anyhive:text-muted-foreground anyhive:text-sm", className)}
       {...props}
     />
   )

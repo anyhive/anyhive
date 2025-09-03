@@ -1,13 +1,13 @@
 {
-  "name": "moneta-cli",
-  "version": "0.0.1",
+  "name": "anyhive",
+  "version": "0.0.0-alpha.1",
   "description": "",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
   "main": "index.js",
   "bin": {
-    "moneta-cli": "bin/moneta.js"
+    "anyhive": "bin/anyhive.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

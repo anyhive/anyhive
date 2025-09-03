@@ -3,7 +3,7 @@
 import * as React from "react"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
-import { cn } from "@moneta-kit/ui/lib/utils"
+import { cn } from "@anyhive-kit/ui/lib/utils"
 
 function TooltipProvider({
   delayDuration = 0,

@@ -1,43 +1,43 @@
 /* Minimal theme - subtle borders, soft shadows, neutral palette */
 
-[data-moneta-theme="minimal"] [data-moneta="upgrade-button"]{
+[data-anyhive-theme="minimal"] [data-anyhive="upgrade-button"]{
   background-color:#2563eb !important; /* blue-600 */
   color:#fff !important;
 }
-[data-moneta-theme="minimal"] [data-moneta="upgrade-button"]:hover{
+[data-anyhive-theme="minimal"] [data-anyhive="upgrade-button"]:hover{
   background-color:#1d4ed8 !important; /* blue-700 */
 }
 
-[data-moneta-theme="minimal"] [data-moneta="banner"][data-status]{
+[data-anyhive-theme="minimal"] [data-anyhive="banner"][data-status]{
   border-width:1px !important;
   border-style:solid !important;
   border-color:#e5e7eb !important; /* gray-200 */
   background:#f9fafb !important; /* gray-50 */
   color:#374151 !important; /* gray-700 */
 }
-[data-moneta-theme="minimal"] [data-moneta="banner"][data-status="expired"],
-[data-moneta-theme="minimal"] [data-moneta="banner"][data-status="blocked"],
-[data-moneta-theme="minimal"] [data-moneta="banner"][data-status="quotaExceeded"]{
+[data-anyhive-theme="minimal"] [data-anyhive="banner"][data-status="expired"],
+[data-anyhive-theme="minimal"] [data-anyhive="banner"][data-status="blocked"],
+[data-anyhive-theme="minimal"] [data-anyhive="banner"][data-status="quotaExceeded"]{
   background:#fef2f2 !important; /* red-50 */
   color:#b91c1c !important; /* red-700 */
   border-color:#fecaca !important; /* red-200 */
 }
-[data-moneta-theme="minimal"] [data-moneta="banner"][data-status="expiringSoon"]{
+[data-anyhive-theme="minimal"] [data-anyhive="banner"][data-status="expiringSoon"]{
   background:#fffbeb !important; /* amber-50 */
   color:#92400e !important; /* amber-800 */
   border-color:#fde68a !important; /* amber-300 */
 }
-[data-moneta-theme="minimal"] [data-moneta="banner"][data-status="softBlocked"]{
+[data-anyhive-theme="minimal"] [data-anyhive="banner"][data-status="softBlocked"]{
   background:#eff6ff !important; /* blue-50 */
   color:#1e40af !important; /* blue-800 */
   border-color:#bfdbfe !important; /* blue-200 */
 }
 
-[data-moneta-theme="minimal"] [data-moneta="empty"]{
+[data-anyhive-theme="minimal"] [data-anyhive="empty"]{
   border-color:#e5e7eb !important; /* gray-200 */
   color:#6b7280 !important; /* gray-500 */
 }
 
-[data-moneta-theme="minimal"] [data-moneta="overlay-backdrop"]>div{
+[data-anyhive-theme="minimal"] [data-anyhive="overlay-backdrop"]>div{
   background:rgba(0,0,0,.40) !important;
 }

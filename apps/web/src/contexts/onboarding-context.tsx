@@ -139,7 +139,7 @@ interface OnboardingContextType {
 
 const OnboardingContext = createContext<OnboardingContextType | undefined>(undefined)
 
-const STORAGE_KEY = 'moneta-onboarding-data'
+const STORAGE_KEY = 'anyhive-onboarding-data'
 
 export function OnboardingProvider({ children }: { children: React.ReactNode }) {
   const [formData, dispatch] = useReducer(onboardingReducer, initialFormData)

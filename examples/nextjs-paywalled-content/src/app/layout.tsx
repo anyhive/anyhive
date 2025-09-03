@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { MonetaProvider } from "@moneta-kit/react/client";
+import { AnyhiveProvider } from "@anyhive-kit/react/client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +28,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <MonetaProvider publishableKey={process.env.NEXT_PUBLIC_MONETA_PUBLISHABLE_KEY}>
+        <AnyhiveProvider publishableKey={process.env.NEXT_PUBLIC_ANYHIVE_PUBLISHABLE_KEY}>
           {children}
-        </MonetaProvider>
+        </AnyhiveProvider>
       </body>
     </html>
   );

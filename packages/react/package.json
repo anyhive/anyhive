@@ -1,32 +1,32 @@
 {
-  "name": "@moneta-kit/react",
+  "name": "@anyhive-kit/react",
   "version": "0.0.1",
-  "description": "React UI & hooks for Moneta Kit",
+  "description": "React UI & hooks for Anyhive Kit",
   "license": "ISC",
   "author": "",
   "type": "module",
   "main": "index.js",
   "exports": {
     ".": {
-      "react-server": "./moneta-server.jsx",
+      "react-server": "./anyhive-server.jsx",
       "types": "./index.d.ts",
       "import": "./index.js",
       "require": "./index.js"
     },
     "./client": {
-      "types": "./moneta-client.d.ts",
-      "import": "./moneta-client.jsx",
-      "require": "./moneta-client.jsx",
+      "types": "./anyhive-client.d.ts",
+      "import": "./anyhive-client.jsx",
+      "require": "./anyhive-client.jsx",
       "style": "./styles.css"
     },
     "./next": {
-      "import": "./moneta-client.jsx",
-      "require": "./moneta-client.jsx"
+      "import": "./anyhive-client.jsx",
+      "require": "./anyhive-client.jsx"
     },
     "./server": {
-      "types": "./moneta-server.d.ts",
-      "import": "./moneta-server.jsx",
-      "require": "./moneta-server.jsx"
+      "types": "./anyhive-server.d.ts",
+      "import": "./anyhive-server.jsx",
+      "require": "./anyhive-server.jsx"
     },
     "./styles.css": {
       "default": "./styles.css"
@@ -42,7 +42,7 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@moneta-kit/ui": "workspace:*"
+    "@anyhive-kit/ui": "workspace:*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

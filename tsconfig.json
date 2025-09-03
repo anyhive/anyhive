@@ -1,4 +1,4 @@
 {
-  "extends": "@moneta-kit/typescript-config/base.json"
+  "extends": "@anyhive-kit/typescript-config/base.json"
 }
 

@@ -1,4 +1,4 @@
-import { AppSidebar } from "@moneta-kit/ui/components/app-sidebar"
+import { AppSidebar } from "@anyhive-kit/ui/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,13 +6,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@moneta-kit/ui/components/breadcrumb"
-import { Separator } from "@moneta-kit/ui/components/separator"
+} from "@anyhive-kit/ui/components/breadcrumb"
+import { Separator } from "@anyhive-kit/ui/components/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@moneta-kit/ui/components/sidebar"
+} from "@anyhive-kit/ui/components/sidebar"
 
 export default function Page() {
   return (

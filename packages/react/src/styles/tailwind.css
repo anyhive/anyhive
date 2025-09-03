@@ -1,17 +1,17 @@
-@import "tailwindcss" prefix(moneta);
+@import "tailwindcss" prefix(anyhive);
 @source "../../*.{js,jsx,ts,tsx}";
 @source "../../../ui/src/components/**/*.{js,jsx,ts,tsx}";
 
 @theme inline {
-  --color-moneta-overlay: rgba(0,0,0,0.4);
-  --color-moneta-primary: #2563eb;
-  --color-moneta-primary-hover: #1d4ed8;
-  --color-moneta-info-bg: #eff6ff; /* blue-50 */
-  --color-moneta-info-fg: #1e40af; /* blue-800 */
-  --color-moneta-warn-bg: #fffbeb; /* amber-50 */
-  --color-moneta-warn-fg: #92400e; /* amber-800 */
-  --color-moneta-error-bg: #fef2f2; /* red-50 */
-  --color-moneta-error-fg: #b91c1c; /* red-700 */
-  --color-moneta-neutral-bg: #f9fafb; /* gray-50 */
-  --color-moneta-neutral-fg: #374151; /* gray-700 */
+  --color-anyhive-overlay: rgba(0,0,0,0.4);
+  --color-anyhive-primary: #2563eb;
+  --color-anyhive-primary-hover: #1d4ed8;
+  --color-anyhive-info-bg: #eff6ff; /* blue-50 */
+  --color-anyhive-info-fg: #1e40af; /* blue-800 */
+  --color-anyhive-warn-bg: #fffbeb; /* amber-50 */
+  --color-anyhive-warn-fg: #92400e; /* amber-800 */
+  --color-anyhive-error-bg: #fef2f2; /* red-50 */
+  --color-anyhive-error-fg: #b91c1c; /* red-700 */
+  --color-anyhive-neutral-bg: #f9fafb; /* gray-50 */
+  --color-anyhive-neutral-fg: #374151; /* gray-700 */
 }

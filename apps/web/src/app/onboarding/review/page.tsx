@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@moneta-kit/ui/components/button"
+import { Button } from "@anyhive-kit/ui/components/button"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useOnboarding } from "@/contexts/onboarding-context"
 import { useRouter } from "next/navigation"

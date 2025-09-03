@@ -1,5 +1,5 @@
 {
-  "name": "@moneta-kit/www",
+  "name": "@anyhive-kit/www",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -41,8 +41,8 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
-    "@moneta-kit/eslint-config": "workspace:*",
-    "@moneta-kit/typescript-config": "workspace:*",
+    "@anyhive-kit/eslint-config": "workspace:*",
+    "@anyhive-kit/typescript-config": "workspace:*",
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
