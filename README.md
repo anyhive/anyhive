@@ -155,7 +155,7 @@ export default async function Page() {
 ```tsx
 // app/page.tsx
 import { prisma } from "@/lib/prisma";
-import { anyhive } from "anyhive-kit"; // server facade
+import { anyhive } from "anyhive"; // server facade
 import { PaywallOverlay, EmptyPlaceholder, AccessBanner } from "@anyhive/react/client";
 
 export default async function Page() {

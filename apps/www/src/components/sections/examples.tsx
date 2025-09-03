@@ -40,7 +40,7 @@ export const anyhive = createAnyhive({
     id: 2,
     title: "Use the SDK on the frontend",
     description: "Call checkout, track usage, or check quotas via useAnyhive().",
-    code: `import { useAnyhive } from "anyhive-kit";
+    code: `import { useAnyhive } from "anyhive";
 
 export function CheckoutButton() {
   const anyhive = useAnyhive();

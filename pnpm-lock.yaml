@@ -297,7 +297,7 @@ importers:
       '@anyhive/react':
         specifier: workspace:*
         version: link:../../packages/react
-      anyhive-kit:
+      anyhive:
         specifier: workspace:*
         version: link:../../packages/anyhive-kit
       next:
@@ -334,7 +334,7 @@ importers:
       '@anyhive/react':
         specifier: workspace:*
         version: link:../../packages/react
-      anyhive-kit:
+      anyhive:
         specifier: workspace:*
         version: link:../../packages/anyhive-kit
       next:
