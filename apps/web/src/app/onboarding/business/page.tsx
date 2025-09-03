@@ -1,8 +1,8 @@
 "use client"
 
-import { Button } from "@anyhive-kit/ui/components/button"
-import { Input } from "@anyhive-kit/ui/components/input"
-import { Label } from "@anyhive-kit/ui/components/label"
+import { Button } from "@anyhive/ui/components/button"
+import { Input } from "@anyhive/ui/components/input"
+import { Label } from "@anyhive/ui/components/label"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useOnboarding } from "@/contexts/onboarding-context"
 import { useRouter } from "next/navigation"
@@ -111,7 +111,7 @@ export default function BusinessPage() {
 
         <div className="space-y-4">
           <h3 className="text-lg font-medium text-gray-900">Business Address</h3>
-          
+
           <div className="space-y-2">
             <Label htmlFor="address">Street Address</Label>
             <Input
@@ -149,8 +149,8 @@ export default function BusinessPage() {
         </div>
 
         <div className="flex justify-between pt-6 border-t border-gray-200">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={handleBack}
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,8 +158,8 @@ export default function BusinessPage() {
             </svg>
             Back
           </Button>
-          
-          <Button 
+
+          <Button
             onClick={handleNext}
             disabled={!isFormValid}
           >

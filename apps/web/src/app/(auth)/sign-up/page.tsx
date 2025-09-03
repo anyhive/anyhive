@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@anyhive-kit/ui/components/button";
+import { Button } from "@anyhive/ui/components/button";
 import {
 	Card,
 	CardContent,
@@ -8,9 +8,9 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@anyhive-kit/ui/components/card";
-import { Input } from "@anyhive-kit/ui/components/input";
-import { Label } from "@anyhive-kit/ui/components/label";
+} from "@anyhive/ui/components/card";
+import { Input } from "@anyhive/ui/components/input";
+import { Label } from "@anyhive/ui/components/label";
 import { useState } from "react";
 import Image from "next/image";
 import { Loader2, X } from "lucide-react";

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation"
 import { StepLayout } from "@/components/onboarding/step-layout"
-import { Button } from "@anyhive-kit/ui/components/button"
+import { Button } from "@anyhive/ui/components/button"
 
 export default function QuickstartCompletePage() {
   const router = useRouter()

@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@anyhive-kit/ui/components/button"
+import { Button } from "@anyhive/ui/components/button"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useRouter } from "next/navigation"
 
@@ -26,7 +26,7 @@ export default function WelcomePage() {
           <p>Let's set up your payment infrastructure and get your business ready to accept payments seamlessly.</p>
           <p className="mt-2">The setup process is quick and easy, taking just a few minutes to complete.</p>
         </div>
-        
+
         <div className="grid grid-cols-1 gap-4">
           <div className="border border-gray-200 rounded-lg p-4">
             <div className="flex items-start space-x-3">
@@ -41,7 +41,7 @@ export default function WelcomePage() {
               </div>
             </div>
           </div>
-          
+
           <div className="border border-gray-200 rounded-lg p-4">
             <div className="flex items-start space-x-3">
               <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -87,17 +87,17 @@ export default function WelcomePage() {
       </div>
 
       <div className="flex justify-center gap-x-3 py-6 border-t border-gray-200 sticky bottom-0 bg-white">
-        <Button 
+        <Button
           variant="secondary"
-          size="lg" 
+          size="lg"
           className="px-8"
           onClick={() => router.push('/quickstart/welcome')}
         >
           Quickstart (Demo)
         </Button>
-        <Button 
+        <Button
           variant="default"
-          size="lg" 
+          size="lg"
           className="px-8"
           onClick={() => router.push('/onboarding/organization')}
         >

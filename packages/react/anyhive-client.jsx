@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useMemo, useState } from 'react'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@anyhive-kit/ui/components/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@anyhive/ui/components/dialog'
 import { useAccessDecision, ACCESS_STATUS } from './index.js'
 
 const AnyhiveContext = createContext({ publishableKey: undefined })

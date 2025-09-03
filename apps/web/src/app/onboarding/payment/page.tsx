@@ -1,8 +1,8 @@
 "use client"
 
-import { Button } from "@anyhive-kit/ui/components/button"
-import { Label } from "@anyhive-kit/ui/components/label"
-import { Checkbox } from "@anyhive-kit/ui/components/checkbox"
+import { Button } from "@anyhive/ui/components/button"
+import { Label } from "@anyhive/ui/components/label"
+import { Checkbox } from "@anyhive/ui/components/checkbox"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useOnboarding } from "@/contexts/onboarding-context"
 import { useRouter } from "next/navigation"
@@ -46,10 +46,10 @@ export default function PaymentPage() {
         <div className="space-y-4">
           <h3 className="text-lg font-medium text-gray-900">Preferred Payment Methods</h3>
           <p className="text-sm text-gray-600">Select the payment methods you'd like to offer your customers</p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg">
-              <Checkbox 
+              <Checkbox
                 id="creditCard"
                 checked={formState.preferredMethods.creditCard}
                 onCheckedChange={(checked) => handleMethodToggle('creditCard', checked as boolean)}
@@ -61,7 +61,7 @@ export default function PaymentPage() {
             </div>
 
             <div className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg">
-              <Checkbox 
+              <Checkbox
                 id="bankTransfer"
                 checked={formState.preferredMethods.bankTransfer}
                 onCheckedChange={(checked) => handleMethodToggle('bankTransfer', checked as boolean)}
@@ -73,7 +73,7 @@ export default function PaymentPage() {
             </div>
 
             <div className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg">
-              <Checkbox 
+              <Checkbox
                 id="digitalWallet"
                 checked={formState.preferredMethods.digitalWallet}
                 onCheckedChange={(checked) => handleMethodToggle('digitalWallet', checked as boolean)}
@@ -85,7 +85,7 @@ export default function PaymentPage() {
             </div>
 
             <div className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg">
-              <Checkbox 
+              <Checkbox
                 id="cryptocurrency"
                 checked={formState.preferredMethods.cryptocurrency}
                 onCheckedChange={(checked) => handleMethodToggle('cryptocurrency', checked as boolean)}
@@ -162,8 +162,8 @@ export default function PaymentPage() {
         </div>
 
         <div className="flex justify-between pt-6 border-t border-gray-200">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={handleBack}
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,8 +171,8 @@ export default function PaymentPage() {
             </svg>
             Back
           </Button>
-          
-          <Button 
+
+          <Button
             onClick={handleNext}
             disabled={!hasSelectedMethod}
           >

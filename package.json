@@ -10,7 +10,7 @@
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "@anyhive-kit/typescript-config": "workspace:*",
+    "@anyhive/typescript-config": "workspace:*",
     "prettier": "^3.5.3",
     "turbo": "^2.5.6",
     "typescript": "5.8.2"

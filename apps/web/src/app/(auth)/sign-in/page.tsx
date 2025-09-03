@@ -1,10 +1,10 @@
 "use client"
 
-import { Button } from "@anyhive-kit/ui/components/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@anyhive-kit/ui/components/card";
-import { Input } from "@anyhive-kit/ui/components/input";
-import { Label } from "@anyhive-kit/ui/components/label";
-import { Checkbox } from "@anyhive-kit/ui/components/checkbox";
+import { Button } from "@anyhive/ui/components/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@anyhive/ui/components/card";
+import { Input } from "@anyhive/ui/components/input";
+import { Label } from "@anyhive/ui/components/label";
+import { Checkbox } from "@anyhive/ui/components/checkbox";
 import { useState } from "react";
 import { Loader2, Key } from "lucide-react";
 import { signIn } from "@/lib/auth-client";
@@ -72,7 +72,7 @@ export default function SignIn() {
                 <Label htmlFor="remember">Remember me</Label>
               </div>
 
-          
+
 
           <Button
               type="submit"
@@ -102,9 +102,9 @@ export default function SignIn() {
               )}
               </Button>
 
-          
 
-          
+
+
         </div>
       </CardContent>
       <CardFooter>

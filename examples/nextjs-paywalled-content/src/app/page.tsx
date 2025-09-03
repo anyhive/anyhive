@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
-import { paywall } from "@anyhive-kit/react/server";
-import "@anyhive-kit/react/styles.css";
-// import "@anyhive-kit/react/themes/neobrutal.css";
+import { paywall } from "@anyhive/react/server";
+import "@anyhive/react/styles.css";
+// import "@anyhive/react/themes/neobrutal.css";
 
 type Post = {
   id: number;

@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@anyhive-kit/ui/components/button"
+import { Button } from "@anyhive/ui/components/button"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useOnboarding } from "@/contexts/onboarding-context"
 import { useRouter } from "next/navigation"
@@ -40,8 +40,8 @@ export default function ReviewPage() {
         <div className="bg-gray-50 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-medium text-gray-900">Organization</h3>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={() => handleEdit('organization')}
             >
@@ -61,8 +61,8 @@ export default function ReviewPage() {
         <div className="bg-gray-50 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-medium text-gray-900">Contact Information</h3>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={() => handleEdit('contact')}
             >
@@ -83,8 +83,8 @@ export default function ReviewPage() {
         <div className="bg-gray-50 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-medium text-gray-900">Business Details</h3>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={() => handleEdit('business')}
             >
@@ -108,8 +108,8 @@ export default function ReviewPage() {
         <div className="bg-gray-50 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-medium text-gray-900">Payment Configuration</h3>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={() => handleEdit('payment')}
             >
@@ -128,8 +128,8 @@ export default function ReviewPage() {
         <div className="bg-gray-50 rounded-lg p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-medium text-gray-900">Integration Preferences</h3>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={() => handleEdit('integration')}
             >
@@ -164,8 +164,8 @@ export default function ReviewPage() {
         </div>
 
         <div className="flex justify-between pt-6 border-t border-gray-200">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={handleBack}
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,8 +173,8 @@ export default function ReviewPage() {
             </svg>
             Back
           </Button>
-          
-          <Button 
+
+          <Button
             onClick={handleSubmit}
             size="lg"
             className="px-8"

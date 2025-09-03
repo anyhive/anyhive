@@ -1,5 +1,5 @@
 {
-  "name": "@anyhive-kit/react",
+  "name": "@anyhive/react",
   "version": "0.0.1",
   "description": "React UI & hooks for Anyhive Kit",
   "license": "ISC",
@@ -42,7 +42,7 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@anyhive-kit/ui": "workspace:*"
+    "@anyhive/ui": "workspace:*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

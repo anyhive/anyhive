@@ -1,9 +1,9 @@
 "use client"
 
-import { Button } from "@anyhive-kit/ui/components/button"
-import { Input } from "@anyhive-kit/ui/components/input"
-import { Label } from "@anyhive-kit/ui/components/label"
-import { Checkbox } from "@anyhive-kit/ui/components/checkbox"
+import { Button } from "@anyhive/ui/components/button"
+import { Input } from "@anyhive/ui/components/input"
+import { Label } from "@anyhive/ui/components/label"
+import { Checkbox } from "@anyhive/ui/components/checkbox"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useOnboarding } from "@/contexts/onboarding-context"
 import { useRouter } from "next/navigation"
@@ -18,7 +18,7 @@ export default function IntegrationPage() {
     const newPlatforms = formState.platforms.includes(platform)
       ? formState.platforms.filter(p => p !== platform)
       : [...formState.platforms, platform]
-    
+
     const newData = { ...formState, platforms: newPlatforms }
     setFormState(newData)
     updateIntegration(newData)
@@ -65,10 +65,10 @@ export default function IntegrationPage() {
         <div className="space-y-4">
           <h3 className="text-lg font-medium text-gray-900">Platform Integrations</h3>
           <p className="text-sm text-gray-600">Select the platforms you'd like to integrate with (optional)</p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {platforms.map((platform) => (
-              <div 
+              <div
                 key={platform.id}
                 className={`flex items-center space-x-3 p-3 border rounded-lg cursor-pointer transition-colors ${
                   formState.platforms.includes(platform.id)
@@ -77,7 +77,7 @@ export default function IntegrationPage() {
                 }`}
                 onClick={() => handlePlatformToggle(platform.id)}
               >
-                <Checkbox 
+                <Checkbox
                   checked={formState.platforms.includes(platform.id)}
                   onChange={() => handlePlatformToggle(platform.id)}
                 />
@@ -92,10 +92,10 @@ export default function IntegrationPage() {
 
         <div className="space-y-4">
           <h3 className="text-lg font-medium text-gray-900">Technical Requirements</h3>
-          
+
           <div className="space-y-3">
             <div className="flex items-center space-x-3">
-              <Checkbox 
+              <Checkbox
                 id="apiUsage"
                 checked={formState.apiUsage}
                 onCheckedChange={(checked) => handleCheckboxChange('apiUsage', checked as boolean)}
@@ -107,7 +107,7 @@ export default function IntegrationPage() {
             </div>
 
             <div className="flex items-center space-x-3">
-              <Checkbox 
+              <Checkbox
                 id="webhooks"
                 checked={formState.webhooks}
                 onCheckedChange={(checked) => handleCheckboxChange('webhooks', checked as boolean)}
@@ -119,7 +119,7 @@ export default function IntegrationPage() {
             </div>
 
             <div className="flex items-center space-x-3">
-              <Checkbox 
+              <Checkbox
                 id="customIntegration"
                 checked={formState.customIntegration}
                 onCheckedChange={(checked) => handleCheckboxChange('customIntegration', checked as boolean)}
@@ -163,8 +163,8 @@ export default function IntegrationPage() {
         </div>
 
         <div className="flex justify-between pt-6 border-t border-gray-200">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={handleBack}
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,7 +172,7 @@ export default function IntegrationPage() {
             </svg>
             Back
           </Button>
-          
+
           <Button onClick={handleNext}>
             Continue
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

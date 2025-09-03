@@ -6,7 +6,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@anyhive-kit/ui/components/collapsible"
+} from "@anyhive/ui/components/collapsible"
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -16,7 +16,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@anyhive-kit/ui/components/sidebar"
+} from "@anyhive/ui/components/sidebar"
 
 export function NavMain({
   items,

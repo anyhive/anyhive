@@ -11,13 +11,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@anyhive-kit/ui/components/dropdown-menu"
+} from "@anyhive/ui/components/dropdown-menu"
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@anyhive-kit/ui/components/sidebar"
+} from "@anyhive/ui/components/sidebar"
 
 export function SiteSwitcher({
   sites,

@@ -11,7 +11,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "next": "15.5.2",
-    "@anyhive-kit/react": "workspace:*",
+    "@anyhive/react": "workspace:*",
     "anyhive-kit": "workspace:*"
   },
   "devDependencies": {

@@ -1,9 +1,9 @@
 {
-  "extends": "@anyhive-kit/typescript-config/react-library.json",
+  "extends": "@anyhive/typescript-config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@anyhive-kit/ui/*": ["./src/*"]
+      "@anyhive/ui/*": ["./src/*"]
     }
   },
   "include": ["."],

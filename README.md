@@ -82,7 +82,7 @@ Anyhive Kit allows you to:
 ## 🏗 Example
 
 ```ts
-import { useAnyhive } from "@anyhive-kit/core"
+import { useAnyhive } from "@anyhive/core"
 
 const { charge } = useAnyhive()
 
@@ -96,7 +96,7 @@ await charge({
 ```
 
 ```ts
-import { useAnyhive } from "@anyhive-kit/core"
+import { useAnyhive } from "@anyhive/core"
 
 const { createCustomer } = useAnyhive()
 
@@ -125,9 +125,9 @@ Minimal integration with server-first gating. Two styles are supported: a one-li
 ```tsx
 // app/page.tsx
 import { prisma } from "@/lib/prisma";
-import { paywall } from "@anyhive-kit/react/server";
-import "@anyhive-kit/react/styles.css"; // optional defaults; or import a theme:
-// import "@anyhive-kit/react/themes/minimal.css";
+import { paywall } from "@anyhive/react/server";
+import "@anyhive/react/styles.css"; // optional defaults; or import a theme:
+// import "@anyhive/react/themes/minimal.css";
 
 export default async function Page() {
   const { render } = await paywall(() => prisma.posts.findMany());
@@ -156,7 +156,7 @@ export default async function Page() {
 // app/page.tsx
 import { prisma } from "@/lib/prisma";
 import { anyhive } from "anyhive-kit"; // server facade
-import { PaywallOverlay, EmptyPlaceholder, AccessBanner } from "@anyhive-kit/react/client";
+import { PaywallOverlay, EmptyPlaceholder, AccessBanner } from "@anyhive/react/client";
 
 export default async function Page() {
   const { fetchIfAllowed, status } = anyhive.authorize();

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useMeteredAction } from "@anyhive-kit/react";
-import { UsageMeter, UsageGate, UpgradeButton } from "@anyhive-kit/react/client";
+import { useMeteredAction } from "@anyhive/react";
+import { UsageMeter, UsageGate, UpgradeButton } from "@anyhive/react/client";
 
 export default function Home() {
   const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant'; content: string }>>([]);

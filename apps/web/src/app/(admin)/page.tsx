@@ -1,4 +1,4 @@
-import { AppSidebar } from "@anyhive-kit/ui/components/app-sidebar"
+import { AppSidebar } from "@anyhive/ui/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,13 +6,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@anyhive-kit/ui/components/breadcrumb"
-import { Separator } from "@anyhive-kit/ui/components/separator"
+} from "@anyhive/ui/components/breadcrumb"
+import { Separator } from "@anyhive/ui/components/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@anyhive-kit/ui/components/sidebar"
+} from "@anyhive/ui/components/sidebar"
 
 export default function Page() {
   return (

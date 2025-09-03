@@ -1,5 +1,5 @@
 {
-  "name": "@anyhive-kit/www",
+  "name": "@anyhive/www",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -41,8 +41,8 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
-    "@anyhive-kit/eslint-config": "workspace:*",
-    "@anyhive-kit/typescript-config": "workspace:*",
+    "@anyhive/eslint-config": "workspace:*",
+    "@anyhive/typescript-config": "workspace:*",
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",

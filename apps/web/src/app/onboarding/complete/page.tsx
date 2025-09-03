@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@anyhive-kit/ui/components/button"
+import { Button } from "@anyhive/ui/components/button"
 import { StepLayout } from "@/components/onboarding/step-layout"
 import { useRouter } from "next/navigation"
 
@@ -42,7 +42,7 @@ export default function CompletePage() {
         {/* What's Next */}
         <div className="w-full max-w-2xl space-y-4">
           <h3 className="text-lg font-semibold text-gray-900">What happens next?</h3>
-          
+
           <div className="grid gap-4">
             <div className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg text-left">
               <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -116,8 +116,8 @@ export default function CompletePage() {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={handleDocs}
             className="flex-1"
           >
@@ -126,8 +126,8 @@ export default function CompletePage() {
             </svg>
             View Documentation
           </Button>
-          
-          <Button 
+
+          <Button
             onClick={handleDashboard}
             className="flex-1"
           >

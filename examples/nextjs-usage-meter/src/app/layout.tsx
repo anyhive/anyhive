@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "@anyhive-kit/react/styles.css";
-import { AnyhiveProvider } from "@anyhive-kit/react/client";
+import "@anyhive/react/styles.css";
+import { AnyhiveProvider } from "@anyhive/react/client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

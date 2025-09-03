@@ -1,4 +1,4 @@
-import { cn } from "@anyhive-kit/ui/lib/utils"
+import { cn } from "@anyhive/ui/lib/utils"
 
 function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (

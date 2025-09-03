@@ -1,3 +1,3 @@
-# `@anyhive-kit/eslint-config`
+# `@anyhive/eslint-config`
 
 Shared eslint configuration for the workspace.

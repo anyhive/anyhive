@@ -1,7 +1,7 @@
 "use client";
 
-import { useAnyhiveKit as useAnyhiveKitReact } from "@anyhive-kit/react";
-import { AnyhiveProvider, PaywallOverlay, UpgradeButton } from "@anyhive-kit/react/client";
+import { useAnyhiveKit as useAnyhiveKitReact } from "@anyhive/react";
+import { AnyhiveProvider, PaywallOverlay, UpgradeButton } from "@anyhive/react/client";
 
 export const anyhive = {
   useAnyhiveKit: useAnyhiveKitReact,

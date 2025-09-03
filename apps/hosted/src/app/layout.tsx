@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@anyhive-kit/ui/globals.css";
+import "@anyhive/ui/globals.css";
 
 export const metadata: Metadata = {
   title: "Anyhive Hosted",

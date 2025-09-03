@@ -1,4 +1,4 @@
 {
-  "extends": "@anyhive-kit/typescript-config/base.json"
+  "extends": "@anyhive/typescript-config/base.json"
 }
 

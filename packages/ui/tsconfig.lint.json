@@ -1,5 +1,5 @@
 {
-  "extends": "@anyhive-kit/typescript-config/react-library.json",
+  "extends": "@anyhive/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist"
   },

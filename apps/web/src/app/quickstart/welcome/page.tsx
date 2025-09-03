@@ -3,9 +3,9 @@
 import { useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
 import { StepLayout } from "@/components/onboarding/step-layout"
-import { Input } from "@anyhive-kit/ui/components/input"
-import { Label } from "@anyhive-kit/ui/components/label"
-import { Button } from "@anyhive-kit/ui/components/button"
+import { Input } from "@anyhive/ui/components/input"
+import { Label } from "@anyhive/ui/components/label"
+import { Button } from "@anyhive/ui/components/button"
 
 type CreateWorkspaceResponse = {
   workspaceId: string

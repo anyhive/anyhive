@@ -18,6 +18,6 @@
   },
   "main": "server.js",
   "dependencies": {
-    "@anyhive-kit/react": "workspace:*"
+    "@anyhive/react": "workspace:*"
   }
 }

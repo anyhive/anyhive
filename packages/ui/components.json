@@ -11,10 +11,10 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@anyhive-kit/ui/components",
-    "utils": "@anyhive-kit/ui/lib/utils",
-    "hooks": "@anyhive-kit/ui/hooks",
-    "lib": "@anyhive-kit/ui/lib",
-    "ui": "@anyhive-kit/ui/components"
+    "components": "@anyhive/ui/components",
+    "utils": "@anyhive/ui/lib/utils",
+    "hooks": "@anyhive/ui/hooks",
+    "lib": "@anyhive/ui/lib",
+    "ui": "@anyhive/ui/components"
   }
 }

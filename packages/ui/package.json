@@ -1,5 +1,5 @@
 {
-  "name": "@anyhive-kit/ui",
+  "name": "@anyhive/ui",
   "version": "0.0.1",
   "type": "module",
   "private": true,
@@ -27,8 +27,8 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@anyhive-kit/eslint-config": "workspace:*",
-    "@anyhive-kit/typescript-config": "workspace:*",
+    "@anyhive/eslint-config": "workspace:*",
+    "@anyhive/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.11",
     "@turbo/gen": "^2.5.5",
     "@types/node": "^20.19.9",

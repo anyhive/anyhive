@@ -9,16 +9,16 @@ import {
   SquareTerminal,
 } from "lucide-react"
 
-import { NavMain } from "@anyhive-kit/ui/components/nav-main"
-import { NavUser } from "@anyhive-kit/ui/components/nav-user"
-import { SiteSwitcher } from "@anyhive-kit/ui/components/site-switcher"
+import { NavMain } from "@anyhive/ui/components/nav-main"
+import { NavUser } from "@anyhive/ui/components/nav-user"
+import { SiteSwitcher } from "@anyhive/ui/components/site-switcher"
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@anyhive-kit/ui/components/sidebar"
+} from "@anyhive/ui/components/sidebar"
 
 // This is sample data.
 const data = {

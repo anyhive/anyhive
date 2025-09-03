@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { usePricingTable } from '@anyhive-kit/react'
-// import { useAnyhive } from '@anyhive-kit/core'
+import { usePricingTable } from '@anyhive/react'
+// import { useAnyhive } from '@anyhive/core'
 import { useBillingDecision, SCENARIOS } from './hooks/useBillingDecision'
 import UpgradeModal from './components/UpgradeModal'
 import UsageBar from './components/UsageBar'
