@@ -209,7 +209,6 @@ export default async function Page() {
 - [Cloudflare Workers](https://workers.cloudflare.com/) - Serverless functions
 - [Vercel](https://vercel.com/) - Deployment
 
-
 ## Self-hosting
 
 Anyhive is open-source and self-hostable. Our goal is to make it easy to self-host and you won't be locked-in, and to make it easy to integrate with your own payment service provider.
