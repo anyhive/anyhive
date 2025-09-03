@@ -8,7 +8,7 @@ const path = require('path')
 
 function printUsage() {
   console.log(`
-anyhive - Moneta command line interface (demo)
+anyhive - Anyhive command line interface (demo)
 
 Usage:
   anyhive init --workspace <id> --token <installToken> [--dir <path>] [--force]

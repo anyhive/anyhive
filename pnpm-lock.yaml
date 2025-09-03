@@ -414,6 +414,12 @@ importers:
 
   packages/affiliate-link: {}
 
+  packages/anyhive-kit:
+    dependencies:
+      '@anyhive-kit/react':
+        specifier: workspace:*
+        version: link:../react
+
   packages/cli: {}
 
   packages/create-anyhive: {}
@@ -460,12 +466,6 @@ importers:
       typescript-eslint:
         specifier: ^8.39.0
         version: 8.41.0(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2)
-
-  packages/anyhive-kit:
-    dependencies:
-      '@anyhive-kit/react':
-        specifier: workspace:*
-        version: link:../react
 
   packages/payment-link: {}
 
