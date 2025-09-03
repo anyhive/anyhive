@@ -3,45 +3,9 @@
 // Minimal demo CLI for anyhive
 // Commands: init, verify, whoami (demo behaviors)
 
-const fs = require('fs')
-const path = require('path')
-
-function printUsage() {
-  console.log(`
-anyhive - Anyhive command line interface (demo)
-
-Usage:
-  anyhive init --workspace <id> --token <installToken> [--dir <path>] [--force]
-  anyhive verify
-  anyhive whoami
-  anyhive sandbox [--dir <path>] [--key <publishableKey>] [--force]
-
-Examples:
-  anyhive init --workspace ws_123 --token it_456
-  anyhive sandbox --dir .
-`)
-}
-
-function parseArgs(argv) {
-  const args = {}
-  const positional = []
-  for (let i = 0; i < argv.length; i++) {
-    const a = argv[i]
-    if (a.startsWith('--')) {
-      const key = a.slice(2)
-      const next = argv[i + 1]
-      if (!next || next.startsWith('--')) {
-        args[key] = true
-      } else {
-        args[key] = next
-        i++
-      }
-    } else {
-      positional.push(a)
-    }
-  }
-  return { args, positional }
-}
+const fs = require('fs');
+const path = require('path');
+const { Command } = require('commander');
 
 function ensureTrailingNewline(str) {
   return str.endsWith('\n') ? str : str + '\n'
@@ -53,67 +17,61 @@ function generateSandboxKey() {
   return `pk_sandbox_${rand()}${rand()}`
 }
 
-async function cmdSandbox(args) {
-  const dir = args.dir ? path.resolve(args.dir) : process.cwd()
-  const envPath = path.join(dir, '.env')
-  const force = Boolean(args.force)
-  const providedKey = typeof args.key === 'string' ? args.key : null
-  const publishableKey = providedKey || generateSandboxKey()
+async function cmdSandbox(options) {
+  const dir = path.resolve(options.dir);
+  const envPath = path.join(dir, '.env');
+  const force = Boolean(options.force);
+  const providedKey = typeof options.key === 'string' ? options.key : null;
+  const publishableKey = providedKey || generateSandboxKey();
+  const newEntry = `ANYHIVE_PUBLISHABLE_KEY=${publishableKey}`;
 
-  let action = 'created'
-  if (fs.existsSync(envPath)) {
-    const text = fs.readFileSync(envPath, 'utf8')
-    const lines = text.split(/\n/)
-    const hasVar = lines.some((l) => l.startsWith('ANYHIVE_PUBLISHABLE_KEY='))
-    if (hasVar) {
+  let action;
+
+  if (!fs.existsSync(envPath)) {
+    fs.writeFileSync(envPath, `${newEntry}\n`);
+    action = 'created';
+  } else {
+    const text = fs.readFileSync(envPath, 'utf8');
+    const lines = text.split(/\n/);
+    const keyIndex = lines.findIndex((l) => l.startsWith('ANYHIVE_PUBLISHABLE_KEY='));
+
+    if (keyIndex !== -1) {
       if (force) {
-        const newLines = lines.map((l) =>
-          l.startsWith('ANYHIVE_PUBLISHABLE_KEY=')
-            ? `ANYHIVE_PUBLISHABLE_KEY=${publishableKey}`
-            : l
-        )
-        fs.writeFileSync(envPath, ensureTrailingNewline(newLines.join('\n')))
-        action = 'updated'
+        lines[keyIndex] = newEntry;
+        fs.writeFileSync(envPath, ensureTrailingNewline(lines.join('\n')));
+        action = 'updated';
       } else {
-        console.log('✔ .env already contains ANYHIVE_PUBLISHABLE_KEY (use --force to overwrite)')
-        action = 'skipped'
+        console.log('✔ .env already contains ANYHIVE_PUBLISHABLE_KEY (use --force to overwrite)');
+        // The key was not updated, so we shouldn't print a new configuration.
+        return;
       }
     } else {
-      const next = ensureTrailingNewline(text) + `ANYHIVE_PUBLISHABLE_KEY=${publishableKey}\n`
-      fs.writeFileSync(envPath, next)
-      action = 'appended'
+      const next = ensureTrailingNewline(text) + `${newEntry}\n`;
+      fs.writeFileSync(envPath, next);
+      action = 'appended';
     }
-  } else {
-    fs.writeFileSync(envPath, `ANYHIVE_PUBLISHABLE_KEY=${publishableKey}\n`)
-    action = 'created'
   }
 
   // Print minimal sandbox info for local testing
-  console.log(`✔ .env ${action} at ${envPath}`)
-  console.log('\nSandbox configuration (copy as needed):')
-  console.log('-------------------------------------')
-  console.log(`ANYHIVE_PUBLISHABLE_KEY=${publishableKey}`)
-  console.log('ANYHIVE_MODE=sandbox')
+  console.log(`✔ .env ${action} at ${envPath}`);
+  console.log('\nSandbox configuration (copy as needed):');
+  console.log('-------------------------------------');
+  console.log(newEntry);
+  console.log('ANYHIVE_MODE=sandbox');
   console.log('ANYHIVE_API_BASE_URL=https://sandbox.api.anyhive.dev')
   console.log('ANYHIVE_WORKSPACE_ID=ws_sandbox_demo')
   console.log('')
 }
 
-async function cmdInit(args) {
-  const workspaceId = args.workspace
-  const installToken = args.token
-  const dir = args.dir ? path.resolve(args.dir) : process.cwd()
-  const force = Boolean(args.force)
+async function cmdInit(options) {
+  const { workspace: workspaceId, token: installToken, force } = options;
+  const dir = path.resolve(options.dir);
 
-  if (!workspaceId || !installToken) {
-    console.error('Error: --workspace and --token are required for init')
-    process.exit(1)
-  }
-
-  const configPath = path.join(dir, 'anyhive.config.json')
+  // .requiredOption() 已經處理了必要參數檢查，這裡不再需要重複判斷。
+  const configPath = path.join(dir, 'anyhive.config.json');
   if (fs.existsSync(configPath) && !force) {
-    console.error(`Error: ${configPath} already exists. Use --force to overwrite.`)
-    process.exit(1)
+    // 拋出錯誤，讓 main().catch() 統一處理，而不是直接結束行程。
+    throw new Error(`${configPath} already exists. Use --force to overwrite.`);
   }
 
   const config = {
@@ -123,11 +81,11 @@ async function cmdInit(args) {
     createdAt: new Date().toISOString(),
     mode: 'demo',
     source: 'quickstart'
-  }
+  };
 
-  fs.writeFileSync(configPath, JSON.stringify(config, null, 2))
-  console.log(`✔ Wrote ${configPath}`)
-  console.log('✔ Initialization complete (demo)')
+  fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
+  console.log(`✔ Wrote ${configPath}`);
+  console.log('✔ Initialization complete (demo)');
 }
 
 async function cmdVerify() {
@@ -148,43 +106,57 @@ async function cmdWhoami() {
 }
 
 async function main() {
-  const argv = process.argv.slice(2)
-  if (argv.length === 0) {
-    printUsage()
-    process.exit(0)
-  }
-  const command = argv[0]
-  const { args, positional } = parseArgs(argv.slice(1))
-  switch (command) {
-    case 'init':
-      await cmdInit(args)
-      break
-    case 'verify':
-      await cmdVerify()
-      break
-    case 'whoami':
-      await cmdWhoami()
-      break
-    case 'sandbox':
-      await cmdSandbox(args)
-      break
-    case '--help':
-    case '-h':
-    default:
-      if (command.startsWith('-')) {
-        printUsage()
-        process.exit(0)
-      }
-      console.error(`Unknown command: ${command}`)
-      printUsage()
-      process.exit(1)
-  }
+  const program = new Command();
+
+  program
+    .name('anyhive')
+    .description('Anyhive command line interface (demo)')
+    .version('0.0.0-alpha.1');
+
+  program
+    .command('init')
+    .description('Initialize an anyhive project (demo)')
+    .requiredOption('--workspace <id>', 'Workspace ID')
+    .requiredOption('--token <installToken>', 'Installation token')
+    .option('--dir <path>', 'Directory to initialize in', process.cwd())
+    .option('--force', 'Overwrite existing configuration')
+    .action(cmdInit);
+
+  program
+    .command('verify')
+    .description('Verify anyhive installation (demo)')
+    .action(cmdVerify);
+
+  program
+    .command('whoami')
+    .description('Display the current user (demo)')
+    .action(cmdWhoami);
+
+  program
+    .command('sandbox')
+    .description('Setup a sandbox environment in a .env file')
+    .option('--dir <path>', 'Directory for the .env file', process.cwd())
+    .option('--key <publishableKey>', 'Provide a specific sandbox key')
+    .option('--force', 'Overwrite existing key')
+    .action(cmdSandbox);
+
+  // Example usage is automatically generated with --help
+  program.addHelpText('after', `
+Examples:
+  $ anyhive init --workspace ws_123 --token it_456
+  $ anyhive sandbox --dir .`);
+
+  await program.parseAsync(process.argv);
 }
 
 main().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
-
-
-
+  // 提供對使用者更友善的錯誤輸出
+  if (err.code && err.code.startsWith('commander.')) {
+    // Commander 自身的錯誤（例如：缺少必要選項）訊息已經很清楚
+    console.error(err.message);
+  } else {
+    // 處理我們自訂的錯誤或其他例外情況
+    console.error(`Error: ${err.message}`);
+  }
+  process.exit(1);
+});

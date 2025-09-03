@@ -1,5 +1,5 @@
 {
-  "name": "anyhive-cli",
+  "name": "anyhive",
   "version": "0.0.0-alpha.1",
   "description": "",
   "license": "ISC",
@@ -11,5 +11,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
   }
 }
