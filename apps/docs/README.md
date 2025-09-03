@@ -1,6 +1,6 @@
-# Anyhive Kit Docs
+# Anyhive Docs
 
-This is the documentation for Anyhive Kit.
+This is the documentation for Anyhive.
 
 ## Getting Started
 

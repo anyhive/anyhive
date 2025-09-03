@@ -1,7 +1,7 @@
 {
   "name": "@anyhive/react",
   "version": "0.0.1",
-  "description": "React UI & hooks for Anyhive Kit",
+  "description": "React UI & hooks for Anyhive",
   "license": "ISC",
   "author": "",
   "type": "module",

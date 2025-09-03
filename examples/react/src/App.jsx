@@ -10,7 +10,7 @@ function App() {
   const [count, setCount] = useState(0)
   const pricing = usePricingTable({
     onSelect: (plan) => {
-      // eslint-disable-next-line no-console
+
       console.log('[pricing-select]', plan)
     }
   })
@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <h1 className="text-3xl font-semibold tracking-tight text-slate-900">Anyhive Kit</h1>
+        <h1 className="text-3xl font-semibold tracking-tight text-slate-900">Anyhive</h1>
 
         <section className="mt-8">
           <h2 className="text-lg font-medium text-slate-900">Pricing Table (Mock)</h2>
@@ -146,7 +146,7 @@ function App() {
           } : null)}
           cycle={pricing.cycle}
           onConfirm={() => {
-            // eslint-disable-next-line no-console
+
             console.log('[upgrade-confirm]', pricing.selectedPlan)
             setUpgradeOpen(false)
           }}

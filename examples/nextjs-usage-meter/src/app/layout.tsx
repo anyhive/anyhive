@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Anyhive Kit - Build metered AI apps in hours, not days",
+  title: "Anyhive - Build metered AI apps in hours, not days",
   description: "Beautiful usage tracking components with built-in metering, gates, and upgrade flows. Fully customizable React components for your AI applications.",
 };
 

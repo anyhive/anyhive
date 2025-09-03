@@ -24,7 +24,7 @@ function HeroPill() {
         🛠️ New
       </div>
       <p className="text-xs font-medium text-primary sm:text-sm">
-        Introducing Anyhive Kit
+        Introducing Anyhive
       </p>
       <svg
         width="12"

@@ -11,12 +11,12 @@ import {
 export const BLUR_FADE_DELAY = 0.15;
 
 export const siteConfig: any = {
-  name: "Anyhive Kit",
+  name: "Anyhive",
   description: "Open source payments and usage-based billing platform",
   cta: "Get Started",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   keywords: [
-    "Anyhive Kit",
+    "Anyhive",
     "Payments",
     "Subscriptions",
     "Usage-based Billing",
