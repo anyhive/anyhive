@@ -299,7 +299,7 @@ importers:
         version: link:../../packages/react
       anyhive:
         specifier: workspace:*
-        version: link:../../packages/anyhive-kit
+        version: link:../../packages/anyhive
       next:
         specifier: 15.5.2
         version: 15.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -336,7 +336,7 @@ importers:
         version: link:../../packages/react
       anyhive:
         specifier: workspace:*
-        version: link:../../packages/anyhive-kit
+        version: link:../../packages/anyhive
       next:
         specifier: 15.5.2
         version: 15.5.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -414,7 +414,7 @@ importers:
 
   packages/affiliate-link: {}
 
-  packages/anyhive-kit:
+  packages/anyhive:
     dependencies:
       '@anyhive/react':
         specifier: workspace:*
