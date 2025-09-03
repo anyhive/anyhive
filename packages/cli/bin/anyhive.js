@@ -17,6 +17,32 @@ function generateSandboxKey() {
   return `pk_sandbox_${rand()}${rand()}`
 }
 
+function getEnvFromInvocation(command, localOptions) {
+  const globals = typeof command?.optsWithGlobals === 'function' ? command.optsWithGlobals() : {};
+  // Priority: local --env/--sandbox > global --env/--sandbox > process.env > default
+  const envFlag = localOptions?.env ?? globals.env;
+  const sandboxFlag = (localOptions?.sandbox ?? globals.sandbox) ? 'sandbox' : undefined;
+  const fromProcess = process.env.ANYHIVE_MODE;
+  const resolved = (sandboxFlag || envFlag || fromProcess || 'production').toLowerCase();
+  if (resolved !== 'sandbox' && resolved !== 'production') return 'production';
+  return resolved;
+}
+
+function resolveEnvSettings(env) {
+  if (env === 'sandbox') {
+    return {
+      mode: 'sandbox',
+      apiBaseUrl: 'https://sandbox.api.anyhive.dev',
+      workspaceId: 'ws_sandbox_demo'
+    };
+  }
+  return {
+    mode: 'production',
+    apiBaseUrl: 'https://api.anyhive.app',
+    workspaceId: undefined
+  };
+}
+
 async function cmdSandbox(options) {
   const dir = path.resolve(options.dir);
   const envPath = path.join(dir, '.env');
@@ -61,11 +87,35 @@ async function cmdSandbox(options) {
   console.log('ANYHIVE_API_BASE_URL=https://sandbox.api.anyhive.dev')
   console.log('ANYHIVE_WORKSPACE_ID=ws_sandbox_demo')
   console.log('')
+
+  if (options.writeAll) {
+    const ensureEnvEntries = [
+      ['ANYHIVE_MODE', 'sandbox'],
+      ['ANYHIVE_API_BASE_URL', 'https://sandbox.api.anyhive.dev'],
+      ['ANYHIVE_WORKSPACE_ID', 'ws_sandbox_demo']
+    ];
+    const text = fs.readFileSync(envPath, 'utf8');
+    const lines = text.split(/\n/);
+    for (const [k, v] of ensureEnvEntries) {
+      const idx = lines.findIndex((l) => l.startsWith(`${k}=`));
+      if (idx !== -1) {
+        if (force) {
+          lines[idx] = `${k}=${v}`;
+        }
+      } else {
+        lines.push(`${k}=${v}`);
+      }
+    }
+    fs.writeFileSync(envPath, ensureTrailingNewline(lines.join('\n')));
+    console.log('✔ Wrote additional sandbox variables to .env');
+  }
 }
 
-async function cmdInit(options) {
+async function cmdInit(options, command) {
   const { workspace: workspaceId, token: installToken, force } = options;
   const dir = path.resolve(options.dir);
+  const env = getEnvFromInvocation(command, options);
+  const envSettings = resolveEnvSettings(env);
 
   // .requiredOption() 已經處理了必要參數檢查，這裡不再需要重複判斷。
   const configPath = path.join(dir, 'anyhive.config.json');
@@ -79,16 +129,18 @@ async function cmdInit(options) {
     apiKey: `pk_demo_${Math.random().toString(36).slice(2, 10)}`,
     installToken,
     createdAt: new Date().toISOString(),
-    mode: 'demo',
+    mode: envSettings.mode,
     source: 'quickstart'
   };
 
   fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
   console.log(`✔ Wrote ${configPath}`);
-  console.log('✔ Initialization complete (demo)');
+  console.log(`✔ Initialization complete (${envSettings.mode})`);
 }
 
-async function cmdVerify() {
+async function cmdVerify(options, command) {
+  const env = getEnvFromInvocation(command, options);
+  const envSettings = resolveEnvSettings(env);
   // Demo verify - simulate delay
   process.stdout.write('Verifying installation')
   await new Promise((r) => setTimeout(r, 400))
@@ -97,12 +149,15 @@ async function cmdVerify() {
   process.stdout.write('.')
   await new Promise((r) => setTimeout(r, 400))
   console.log(' done')
-  console.log('✔ Verified (demo)')
+  console.log(`✔ Verified (${envSettings.mode})`)
 }
 
-async function cmdWhoami() {
+async function cmdWhoami(options, command) {
+  const env = getEnvFromInvocation(command, options);
+  const envSettings = resolveEnvSettings(env);
   console.log('Demo User  <demo@anyhive.app>')
-  console.log('Workspace: demo-workspace (ws_demo_1)')
+  console.log(`Workspace: demo-workspace (${envSettings.workspaceId || 'ws_demo_1'})`)
+  console.log(`Environment: ${envSettings.mode} (${envSettings.apiBaseUrl})`)
 }
 
 async function main() {
@@ -112,6 +167,11 @@ async function main() {
     .name('anyhive')
     .description('Anyhive command line interface (demo)')
     .version('0.0.0-alpha.1');
+
+  // Global options for environment selection
+  program
+    .option('--env <env>', 'Target environment: sandbox|production', process.env.ANYHIVE_MODE || 'production')
+    .option('--sandbox', 'Alias of --env sandbox');
 
   program
     .command('init')
@@ -138,13 +198,15 @@ async function main() {
     .option('--dir <path>', 'Directory for the .env file', process.cwd())
     .option('--key <publishableKey>', 'Provide a specific sandbox key')
     .option('--force', 'Overwrite existing key')
+    .option('--write-all', 'Also write ANYHIVE_MODE, ANYHIVE_API_BASE_URL, ANYHIVE_WORKSPACE_ID')
     .action(cmdSandbox);
 
   // Example usage is automatically generated with --help
   program.addHelpText('after', `
 Examples:
   $ anyhive init --workspace ws_123 --token it_456
-  $ anyhive sandbox --dir .`);
+  $ anyhive verify --env sandbox
+  $ anyhive sandbox --dir . --write-all`);
 
   await program.parseAsync(process.argv);
 }
