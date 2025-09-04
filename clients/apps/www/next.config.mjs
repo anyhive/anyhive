@@ -10,6 +10,15 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/discord",
+        destination: "https://discord.gg/nnRQWyfhAj",
+        permanent: false,
+      },
+    ];
+  }
 };
 
 export default nextConfig;
