@@ -24,15 +24,11 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
-gem "solid_cache"
-gem "solid_queue"
 gem "solid_cable"
+gem "rack-cors"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-
-# Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
-gem "kamal", require: false
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
@@ -49,6 +45,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "rspec-rails", "~> 8.0.0"
 end
 
 group :development do
@@ -56,8 +54,13 @@ group :development do
   gem "web-console"
 end
 
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-end
+gem "tailwindcss-rails", "~> 4.3"
+
+# tracing
+# gem "opentelemetry-sdk"
+# gem "opentelemetry-exporter-otlp"
+# gem "opentelemetry-instrumentation-all"
+# gem "opentelemetry-instrumentation-net_http"
+# gem "opentelemetry-instrumentation-pg"
+# gem "opentelemetry-instrumentation-rack"
+# gem "opentelemetry-instrumentation-rails"

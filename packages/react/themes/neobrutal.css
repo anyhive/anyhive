@@ -1,0 +1,43 @@
+/* Neobrutalism theme - bold borders, saturated colors, pronounced shadows */
+
+[data-anyhive-theme="neobrutal"] [data-anyhive="upgrade-button"]{
+  background-color:#f59e0b !important; /* amber-500 */
+  color:#111827 !important; /* gray-900 */
+  box-shadow:6px 6px 0 #111827 !important;
+  border:2px solid #111827 !important;
+}
+[data-anyhive-theme="neobrutal"] [data-anyhive="upgrade-button"]:hover{
+  background-color:#d97706 !important; /* amber-600 */
+}
+
+[data-anyhive-theme="neobrutal"] [data-anyhive="banner"][data-status]{
+  border:2px solid #111827 !important;
+  box-shadow:6px 6px 0 #111827 !important;
+  background:#fef3c7 !important; /* amber-100 */
+  color:#111827 !important;
+}
+[data-anyhive-theme="neobrutal"] [data-anyhive="banner"][data-status="expired"],
+[data-anyhive-theme="neobrutal"] [data-anyhive="banner"][data-status="blocked"],
+[data-anyhive-theme="neobrutal"] [data-anyhive="banner"][data-status="quotaExceeded"]{
+  background:#fecaca !important; /* red-200 */
+  color:#7f1d1d !important; /* red-900 */
+}
+[data-anyhive-theme="neobrutal"] [data-anyhive="banner"][data-status="expiringSoon"]{
+  background:#fde68a !important; /* amber-300 */
+}
+[data-anyhive-theme="neobrutal"] [data-anyhive="banner"][data-status="softBlocked"]{
+  background:#bfdbfe !important; /* blue-200 */
+}
+
+[data-anyhive-theme="neobrutal"] [data-anyhive="empty"]{
+  border:2px dashed #111827 !important;
+  color:#111827 !important;
+  box-shadow:6px 6px 0 #111827 !important;
+}
+
+[data-anyhive-theme="neobrutal"] [data-anyhive="overlay-backdrop"]>div{
+  background:#111827 !important;
+  color:#fff !important;
+  border:2px solid #111827 !important;
+  box-shadow:6px 6px 0 #111827 !important;
+}

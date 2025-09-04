@@ -1,0 +1,56 @@
+{
+  "name": "@anyhive/react",
+  "version": "0.0.1",
+  "description": "React UI & hooks for Anyhive",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "react-server": "./anyhive-server.jsx",
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "require": "./index.js"
+    },
+    "./client": {
+      "types": "./anyhive-client.d.ts",
+      "import": "./anyhive-client.jsx",
+      "require": "./anyhive-client.jsx",
+      "style": "./styles.css"
+    },
+    "./next": {
+      "import": "./anyhive-client.jsx",
+      "require": "./anyhive-client.jsx"
+    },
+    "./server": {
+      "types": "./anyhive-server.d.ts",
+      "import": "./anyhive-server.jsx",
+      "require": "./anyhive-server.jsx"
+    },
+    "./styles.css": {
+      "default": "./styles.css"
+    },
+    "./themes/minimal.css": {
+      "default": "./themes/minimal.css"
+    },
+    "./themes/neobrutal.css": {
+      "default": "./themes/neobrutal.css"
+    }
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {
+    "@anyhive/ui": "workspace:*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tailwindcss -i src/styles/tailwind.css -o styles.css --watch",
+    "build:css": "tailwindcss -i src/styles/tailwind.css -o styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.0"
+  }
+}

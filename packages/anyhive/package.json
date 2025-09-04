@@ -1,0 +1,23 @@
+{
+  "name": "anyhive",
+  "version": "0.0.1",
+  "description": "Unified Anyhive facade for server/client usage.",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "exports": {
+    ".": {
+      "react-server": "./server.js",
+      "import": "./server.js",
+      "require": "./server.js"
+    },
+    "./client": {
+      "import": "./client.js",
+      "require": "./client.js"
+    }
+  },
+  "main": "server.js",
+  "dependencies": {
+    "@anyhive/react": "workspace:*"
+  }
+}
