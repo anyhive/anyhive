@@ -314,5 +314,5 @@ For the self-hosted version, we will make it easy to deploy to Cloudflare Worker
 ## 📣 Get Involved
 
 - ⭐ Star this repo
-- 💬 Join the community on [Discord](https://discord.gg/2mkz2m9w6m)
+- 💬 Join the community on [Discord](https://anyhive.com/discord)
 - 🛠 Try the SDK, open issues, and contribute PSP adapters
