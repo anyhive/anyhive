@@ -44,6 +44,7 @@ anyhive init --workspace <id> --token <installToken> [--dir <path>] [--force] [-
 ```
 
 Behavior:
+
 - Creates `anyhive.config.json` in the target directory
 - Respects `--env` to set the initial `mode` (e.g. `sandbox` or `production`)
 - Errors if a config already exists unless `--force` is provided
@@ -73,6 +74,7 @@ anyhive sandbox [--dir <path>] [--key <publishableKey>] [--force] [--write-all]
 ```
 
 Options:
+
 - `--dir <path>`: Directory for the `.env` file (default: current directory)
 - `--key <publishableKey>`: Provide a specific key instead of generating one
 - `--force`: Overwrite existing `ANYHIVE_PUBLISHABLE_KEY` in `.env`
@@ -82,6 +84,7 @@ Options:
   - `ANYHIVE_WORKSPACE_ID=ws_sandbox_demo`
 
 Notes:
+
 - Without `--force`, an existing `ANYHIVE_PUBLISHABLE_KEY` will not be overwritten
 - The command prints a short configuration summary for quick copying
 
@@ -116,5 +119,3 @@ anyhive <command> --help
 ## License
 
 ISC
-
-

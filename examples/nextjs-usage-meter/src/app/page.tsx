@@ -14,7 +14,7 @@ export default function Home() {
     return `AI Response to: "${prompt}"`;
   };
 
-  const { run, allowed, usage } = useMeteredAction(action, { cost: 20 });
+  const { run, allowed, usage } = useMeteredAction(action, { cost: 20, limit: 100 });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

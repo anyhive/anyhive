@@ -55,3 +55,12 @@ group :development do
 end
 
 gem "tailwindcss-rails", "~> 4.3"
+
+# tracing
+# gem "opentelemetry-sdk"
+# gem "opentelemetry-exporter-otlp"
+# gem "opentelemetry-instrumentation-all"
+# gem "opentelemetry-instrumentation-net_http"
+# gem "opentelemetry-instrumentation-pg"
+# gem "opentelemetry-instrumentation-rack"
+# gem "opentelemetry-instrumentation-rails"

@@ -1,10 +1,9 @@
 # Anyhive
 
-Build your product. We handle payments, billing, and compliance.
+> You focus on building your product - From Hello World to IPO. We handle payments, billing, and compliance.
 
 Anyhive is an open-source, developer-first Merchant of Record (MoR) and billing layer. With Anyhive, you can build your own checkout and customer portals with hosted UI or embeddable components within minutes.
 
-> **The open-source Merchant of Record for developers.**
 > Open-source billing — pricing, metering, and compliance made simple.
 
 - Server‑first access control: RSC/SSR‑friendly paywall with one‑line gating (`paywall().render`) or explicit `fetchIfAllowed`.
@@ -12,21 +11,19 @@ Anyhive is an open-source, developer-first Merchant of Record (MoR) and billing 
 - Compliance from day one: Tax/VAT/GST/JCT ready, with region‑specific modules on the roadmap.
 - Open, portable, and programmable: Your data, your PSPs, your rules.
 
-Scales your startup from Hello World to IPO — without getting stuck in someone else’s billing walled garden.
-
 ## What is Anyhive?
 
-Anyhive is open-source **Merchant of Record (MoR)** with payments, subscriptions, and compliance.
+Anyhive is open-source **Merchant of Record (MoR)** with payments, subscriptions, and compliance. 100% open-source, 100% portable, 100% programmable.
 
 It includes:
 
 - A React SDK for embedding pricing tables, checkout, and customer portals.
 - A Next.js hosted checkout page and customer portal.
 - A CLI for installing and managing your pricing plans, subscriptions, and configuration.
+- A comprehensive documentation and examples.
+- An Admin dashboard for managing your pricing plans, subscriptions, and configuration.
 
-100% open-source, 100% portable, 100% programmable.
-
-It includes:
+With the admin dashboard, you can manage:
 
 - 📊 Subscriptions & usage-based pricing
 - ✅ Global tax, fraud, and compliance
@@ -36,6 +33,19 @@ It includes:
 With one SDK + API + CLI + starter templates, developers can own your cross-border payments infra, e.g. collect payments, tax compliance and payouts in **minutes, not weeks** — without vendor lock-in.
 
 ## 🌏 Roadmap
+
+*We ship fast and iterate quickly.*
+
+V0.0.1: This week, we will focus on the following:
+
+- [ ] The first release of Anyhive with a sandbox environment with API for pricing plans.
+- [ ] The first release of useAnyhive hook for React.
+- [ ] The first release of Anyhive CLI.
+- [ ] 2 demo examples go live: usage meter and paywalled content.
+
+V0.0.2: Next week, we will focus on the following:
+
+- [ ] Hosted checkout page and customer portal.
 
 Near-term
 
